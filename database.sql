@@ -373,3 +373,4 @@ INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
 	040, 99995, 3011, 0, 'Unavailable'); 
+ -- just a random string to commit, ignore it or delete it
