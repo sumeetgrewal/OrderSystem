@@ -1,14 +1,14 @@
 --```````````````````````````````````````````````````````````
 
-drop table restaurant ;
-drop table orders;
-drop table supplier;
-drop table distributor;
-drop table product;
-drop table warehouse;
-drop table stores;
 drop table contain;
+drop table product;
+drop table orders;
+drop table stores;
 drop table contracts;
+drop table distributor;
+drop table warehouse;
+drop table restaurant ;
+drop table supplier;
 
 
 CREATE TABLE restaurant (
@@ -131,7 +131,7 @@ FOREIGN KEY (pid, sid) REFERENCES product(pid, sid)) ;
 grant select on stores to public;
 
 --````````````````````````````````````````````````````````````````````````````
-
+/*
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
@@ -372,5 +372,4 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	040, 99995, 3011, 0, 'Unavailable'); 
- -- just a random string to commit, ignore it or delete it
+	040, 99995, 3011, 0, 'Unavailable');  */
