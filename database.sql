@@ -1,14 +1,14 @@
 --```````````````````````````````````````````````````````````
 
-drop table contain;
-drop table product;
-drop table orders;
-drop table stores;
-drop table contracts;
-drop table distributor;
-drop table warehouse;
-drop table restaurant ;
-drop table supplier;
+drop table contain CASCADE CONSTRAINTS;
+drop table product CASCADE CONSTRAINTS;
+drop table orders CASCADE CONSTRAINTS;
+drop table stores CASCADE CONSTRAINTS;
+drop table contracts CASCADE CONSTRAINTS;
+drop table distributor CASCADE CONSTRAINTS;
+drop table warehouse CASCADE CONSTRAINTS; 
+drop table restaurant CASCADE CONSTRAINTS;
+drop table supplier CASCADE CONSTRAINTS;
 
 
 CREATE TABLE restaurant (
@@ -131,7 +131,7 @@ FOREIGN KEY (pid, sid) REFERENCES product(pid, sid)) ;
 grant select on stores to public;
 
 --````````````````````````````````````````````````````````````````````````````
-/*
+
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
@@ -372,4 +372,4 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	040, 99995, 3011, 0, 'Unavailable');  */
+	040, 99995, 3011, 0, 'Unavailable');  
