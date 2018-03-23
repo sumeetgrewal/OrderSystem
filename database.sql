@@ -23,7 +23,7 @@ PRIMARY KEY (rid),
 UNIQUE (unitNo, street, city, province),
 UNIQUE (phone));
 
- grant select on restaurant to public;
+ grant all on restaurant to public;
 
 -- ``````````````````````````````````````````````````````````````````````````
 
@@ -34,7 +34,7 @@ phone   char(20),
 PRIMARY KEY (sid),
 UNIQUE (phone, name));
 
-grant select on supplier to public;
+grant all on supplier to public;
  
  --`````````````````````````````````````````````````````````````````
 
@@ -45,7 +45,7 @@ phone    char(20),
 PRIMARY KEY (did),
 UNIQUE (phone, name));
 
-grant select on distributor to public;
+grant all on distributor to public;
 
 --```````````````````````````````````````````````````````````````````
 CREATE TABLE orders (
@@ -62,7 +62,7 @@ FOREIGN KEY (rid) REFERENCES restaurant(rid),
 FOREIGN KEY (sid) REFERENCES supplier(sid),
 FOREIGN KEY (did) REFERENCES distributor(did));
 
-grant select on orders to public;
+grant all on orders to public;
 
 --```````````````````````````````````````````````````````````
 
@@ -75,7 +75,7 @@ sid      integer,
 PRIMARY KEY (pid, sid),
 FOREIGN KEY (sid) REFERENCES supplier(sid));
 
-grant select on product to public;
+grant all on product to public;
 
 --``````````````````````````````````````````````````````````````
 
@@ -92,7 +92,7 @@ FOREIGN KEY (sid) REFERENCES supplier(sid),
 UNIQUE (unitNo, street, city, province),
 UNIQUE (phone));
 
-grant select on warehouse to public;
+grant all on warehouse to public;
 
 --```````````````````````````````````````````````````````````````
 
@@ -102,7 +102,7 @@ did   integer,
 PRIMARY KEY (sid, did),	
 FOREIGN KEY (sid) REFERENCES supplier(sid));
 
-grant select on contracts to public;
+grant all on contracts to public;
 
 --````````````````````````````````````````````````````
 
@@ -115,7 +115,7 @@ PRIMARY KEY (oid, pid, sid),
 FOREIGN KEY (oid) REFERENCES orders(oid),
 FOREIGN KEY (pid, sid) REFERENCES product(pid, sid));
 
-grant select on contain to public;
+grant all on contain to public;
 
 --``````````````````````````````````````````````````````````
 CREATE TABLE stores (
@@ -128,7 +128,7 @@ PRIMARY KEY (wid, pid, sid),
 FOREIGN KEY (wid) REFERENCES warehouse(wid), 
 FOREIGN KEY (pid, sid) REFERENCES product(pid, sid)) ;
 
-grant select on stores to public;
+grant all on stores to public;
 
 --````````````````````````````````````````````````````````````````````````````
 
@@ -201,7 +201,7 @@ VALUES (
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1000, 'P=NP', '772223456');
+	1000, 'P=NP', '7782223456');
 
 INSERT INTO distributor (
 did, name, phone) 
