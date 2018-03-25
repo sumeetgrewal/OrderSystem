@@ -58,7 +58,8 @@ rid     integer,
 sid     integer, 
 did     integer,
 PRIMARY KEY (oid),
-FOREIGN KEY (rid) REFERENCES restaurant(rid),
+FOREIGN KEY (rid) REFERENCES restaurant(rid)
+	ON DELETE CASCADE,
 FOREIGN KEY (sid) REFERENCES supplier(sid),
 FOREIGN KEY (did) REFERENCES distributor(did));
 
