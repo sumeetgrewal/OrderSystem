@@ -113,7 +113,7 @@ pid      integer,
 sid      integer, 
 quantity integer,
 PRIMARY KEY (oid, pid, sid),
-FOREIGN KEY (oid) REFERENCES orders(oid),
+FOREIGN KEY (oid) REFERENCES orders(oid) ON DELETE CASCADE,
 FOREIGN KEY (pid, sid) REFERENCES product(pid, sid));
 
 grant all on contain to public;
