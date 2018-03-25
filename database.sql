@@ -21,8 +21,7 @@ city    char(20),
 province char(20),
 PRIMARY KEY (rid),
 UNIQUE (unitNo, street, city, province),
-UNIQUE (phone),
-ON DELETE CASCADE);
+UNIQUE (phone));
 
  grant all on restaurant to public;
 
@@ -55,8 +54,8 @@ cost     numeric(10,2),
 status   char(20), 
 orderDate date, 
 shipDate date, 
-rid     integer NOT NULL, 
-sid     integer NOT NULL, 
+rid     integer, 
+sid     integer, 
 did     integer,
 PRIMARY KEY (oid),
 FOREIGN KEY (rid) REFERENCES restaurant(rid),
