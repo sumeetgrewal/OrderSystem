@@ -58,7 +58,8 @@ rid     integer,
 sid     integer, 
 did     integer,
 PRIMARY KEY (oid),
-FOREIGN KEY (rid) REFERENCES restaurant(rid),
+FOREIGN KEY (rid) REFERENCES restaurant(rid)
+	ON DELETE CASCADE,
 FOREIGN KEY (sid) REFERENCES supplier(sid),
 FOREIGN KEY (did) REFERENCES distributor(did));
 
@@ -112,7 +113,7 @@ pid      integer,
 sid      integer, 
 quantity integer,
 PRIMARY KEY (oid, pid, sid),
-FOREIGN KEY (oid) REFERENCES orders(oid),
+FOREIGN KEY (oid) REFERENCES orders(oid) ON DELETE CASCADE,
 FOREIGN KEY (pid, sid) REFERENCES product(pid, sid));
 
 grant all on contain to public;
