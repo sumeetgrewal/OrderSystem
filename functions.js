@@ -1,7 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function() {  
   $('#table').on('click', 'tbody tr', function(event) {
     $(this).addClass('active').siblings().removeClass('active');
-  });
+    $('#submitButton').prop("disabled", false);
+  });  
 });
 
 function submit_form() {

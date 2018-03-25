@@ -14,23 +14,60 @@
     ?>
     
     <form id="filter" method="post">
-    <input name="oid" type="text" placeholder="OID" <?php echo(isset($_POST['oid']) ? 'value="'.$_POST['oid'].'"' : '') ?> ><br>
-    <input name="cost" type="text" placeholder="Cost" <?php echo(isset($_POST['cost']) ? 'value="'.$_POST['cost'].'"' : '') ?> ><br>
-    <input name="status" type="text" placeholder="Status" <?php echo(isset($_POST['status']) ? 'value="'.$_POST['status'].'"' : '') ?> ><br>
-    <input name="orderDate" type="text" placeholder="Order Date" <?php echo(isset($_POST['orderDate']) ? 'value="'.$_POST['orderDate'].'"' : '') ?> ><br>
-    <input name="shipDate" type="text" placeholder="Ship Date" <?php echo(isset($_POST['shipDate']) ? 'value="'.$_POST['shipDate'].'"' : '') ?> ><br>
-    <input name="sid" type="text" placeholder="SID" <?php echo(isset($_POST['sid']) ? 'value="'.$_POST['sid'].'"' : '') ?> ><br>
-    <input name="did" type="text" placeholder="DID" <?php echo(isset($_POST['did']) ? 'value="'.$_POST['did'].'"' : '') ?> ><br>
-    
-    <input type="checkbox" name="showOID" value="show" <?php echo(isset($_POST['showOID'])?'checked="checked"':'') ?> >OID
-    <input type="checkbox" name="showCost" value="show" <?php echo(isset($_POST['showCost'])?'checked="checked"':'') ?> >Cost
-    <input type="checkbox" name="showStatus" value="show" <?php echo(isset($_POST['showStatus'])?'checked="checked"':'') ?> >Status
-    <input type="checkbox" name="showOrderDate" value="show" <?php echo(isset($_POST['showOrderDate'])?'checked="checked"':'') ?> >Order Date
-    <input type="checkbox" name="showShipDate" value="show" <?php echo(isset($_POST['showShipDate'])?'checked="checked"':'') ?> >Ship Date
-    <input type="checkbox" name="showRID" value="show" <?php echo(isset($_POST['showRID'])?'checked="checked"':'') ?> >RID
-    <input type="checkbox" name="showSID" value="show" <?php echo(isset($_POST['showSID'])?'checked="checked"':'') ?> >SID
-    <input type="checkbox" name="showDID" value="show" <?php echo(isset($_POST['showDID'])?'checked="checked"':'') ?> >DID<br>
-    <input type="submit" value="Filter">
+      <h5>Search</h5>
+      <div class="form-row">
+        <div class="col"> 
+          <input class="form-control" name="oid" type="text" placeholder="OID" <?php echo(isset($_POST['oid']) ? 'value="'.$_POST['oid'].'"' : '') ?> ><br>
+          <input class="form-control" name="status" type="text" placeholder="Status" <?php echo(isset($_POST['status']) ? 'value="'.$_POST['status'].'"' : '') ?> ><br>
+          <input class="form-control" name="shipDate" type="text" placeholder="Ship Date" <?php echo(isset($_POST['shipDate']) ? 'value="'.$_POST['shipDate'].'"' : '') ?> ><br>
+          <input class="form-control" name="did" type="text" placeholder="DID" <?php echo(isset($_POST['did']) ? 'value="'.$_POST['did'].'"' : '') ?> ><br>
+        </div>
+        <div class="col">
+          <input class="form-control" name="cost" type="text" placeholder="Cost" <?php echo(isset($_POST['cost']) ? 'value="'.$_POST['cost'].'"' : '') ?> ><br>
+          <input class="form-control" name="orderDate" type="text" placeholder="Order Date" <?php echo(isset($_POST['orderDate']) ? 'value="'.$_POST['orderDate'].'"' : '') ?> ><br>  
+          <input class="form-control" name="sid" type="text" placeholder="SID" <?php echo(isset($_POST['sid']) ? 'value="'.$_POST['sid'].'"' : '') ?> ><br>
+        </div>
+      </div>
+        
+      <h5>Hide Columns</h5>
+      <div class="form-group"> 
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showOID" value="show" <?php echo(isset($_POST['showOID'])?'checked="checked"':'') ?> >OID
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showCost" value="show" <?php echo(isset($_POST['showCost'])?'checked="checked"':'') ?> >Cost
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showStatus" value="show" <?php echo(isset($_POST['showStatus'])?'checked="checked"':'') ?> >Status
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showOrderDate" value="show" <?php echo(isset($_POST['showOrderDate'])?'checked="checked"':'') ?> >Order Date
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showShipDate" value="show" <?php echo(isset($_POST['showShipDate'])?'checked="checked"':'') ?> >Ship Date
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showRID" value="show" <?php echo(isset($_POST['showRID'])?'checked="checked"':'') ?> >RID
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showSID" value="show" <?php echo(isset($_POST['showSID'])?'checked="checked"':'') ?> >SID
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="showDID" value="show" <?php echo(isset($_POST['showDID'])?'checked="checked"':'') ?> >DID
+        </div>
+      </div>
+        
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Filter">
+      </div>
+      <hr>
     </form>
     
     <?php
@@ -77,7 +114,7 @@
     
     if ($r) {
       // Fetch each row in an associative array
-      print '<div class="table-responsive"><table class="table table-bordered table-hover">
+      print '<div class="table-responsive"><table class="table table-bordered table-hover mb-5">
         <thead><tr>';
       if ($showOID != 'show') { print '<th scople="col">OID</th>'; }
       if ($showCost != 'show') { print '<th scople="col">Cost</th>'; }
@@ -140,7 +177,9 @@
     oci_close($conn); ?>
     
     <form id="next" method="get">
-    <input type="button" value="Next" onClick="submit_form()">
+      <div class="form-group">
+        <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_form()" disabled="true">
+      </div>
     </form>
 
 <?php } ?>
