@@ -6,8 +6,11 @@
   
   $rid = $_GET["rid"];
   $oid = $_GET["oid"];
-  if ($oid) {
-	  // Create connection to Oracle
+  if ($oid) { ?>
+	  
+	  <h1>Order #<?php echo $oid ?></h1>
+	  
+	  <?php // Create connection to Oracle
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     
     $deletePid = $_POST['delete_pid'];
@@ -24,7 +27,7 @@
     $r = oci_execute($stid);
     
     // Fetch each row in an associative array
-    print '<div id="restaurantTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
+    print '<div class="table-responsive"><table class="table table-bordered"><thead><tr>
       <th scople="col">OID</th>
       <th scople="col">Cost</th>
       <th scople="col">Status</th>
@@ -42,8 +45,11 @@
        print '</tr>';
     }
     print '</tbody></table></div>';
+    ?>
     
+    <h1>Order Details</h1>
     
+    <?php 
     $query2 = 'select p.pid, p.name, p.category, p.price, c.quantity from product p, contain c where c.oid='.$oid.' AND c.pid=p.pid';
     $stid2 = oci_parse($conn, $query2);
     $r2 = oci_execute($stid2);

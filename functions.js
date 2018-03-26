@@ -19,7 +19,15 @@ $(document).ready(function() {
 function submit_form() {
   $value = $('#restaurantTable .active td').html();
   $('#next').append('<input type="hidden" name="rid" value="'+$value+'" />');
-  $("#next").submit();
+  
+  $pass = prompt("Please enter password", "");
+
+  if ($pass == $value) {
+      $("#next").submit();
+  } else {
+    alert("Wrong password");
+  }
+  
 }
 
 function submit_another_form() {
@@ -41,8 +49,6 @@ function delete_restaurant() {
 function delete_product() {
 	if (confirm('Are you sure you want to delete this product?')) {
 		$value = $('#productTable .active td').html();
-		$price = $('#productTable .active td').html();
-		alert($price);
 		$('#deleteProduct').append('<input type="hidden" name="delete_pid" value="'+$value+'" />');
 		$("#deleteProduct").submit();
 	} else {

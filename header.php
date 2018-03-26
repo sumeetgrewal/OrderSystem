@@ -28,7 +28,7 @@
             <a class="nav-link" href="supplier.php">Supplier</a>
           </li>
           <li class="nav-item <?php if (basename($_SERVER['PHP_SELF'], '.php') == "distributor") {echo "active";}; ?>">
-            <a class="nav-link" href="distributor.php">Distributer</a>
+            <a class="nav-link" href="distributor.php">Distributor</a>
           </li>
         </ul>
       </div>
