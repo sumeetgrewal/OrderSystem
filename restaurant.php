@@ -5,7 +5,76 @@
 <?php
   
   $rid = $_GET["rid"];
-  if ($rid) { ?>
+  $oid = $_GET["oid"];
+  if ($oid) {
+	  // Create connection to Oracle
+    $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+    
+    $deletePid = $_POST['delete_pid'];
+    $delteQuery = 'delete from contain where pid='.$deletePid.' AND oid='.$oid.'';
+    $delteStid = oci_parse($conn, $delteQuery);
+    $delteR = oci_execute($delteStid);
+    
+    $delteQuery2 = 'update orders o set o.cost=o.cost-(select price from product where pid='.$deletePid.') where o.oid='.$oid.'';
+    $delteStid2 = oci_parse($conn, $delteQuery2);
+    $delteR2 = oci_execute($delteStid2);
+    
+    $query = 'select * from orders where oid='.$oid.'';
+    $stid = oci_parse($conn, $query);
+    $r = oci_execute($stid);
+    
+    // Fetch each row in an associative array
+    print '<div id="restaurantTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
+      <th scople="col">OID</th>
+      <th scople="col">Cost</th>
+      <th scople="col">Status</th>
+      <th scople="col">Order Date</th>
+      <th scople="col">Ship Date</th>
+      <th scople="col">RID</th>
+      <th scople="col">SID</th>
+      <th scople="col">DID</th>
+      </tr></thead><tbody>';
+    while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
+       print '<tr>';
+       foreach ($row as $item) {
+           print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+       }
+       print '</tr>';
+    }
+    print '</tbody></table></div>';
+    
+    
+    $query2 = 'select p.pid, p.name, p.category, p.price, c.quantity from product p, contain c where c.oid='.$oid.' AND c.pid=p.pid';
+    $stid2 = oci_parse($conn, $query2);
+    $r2 = oci_execute($stid2);
+    
+    // Fetch each row in an associative array
+    print '<div id="productTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
+      <th scople="col">PID</th>
+      <th scople="col">Name</th>
+      <th scople="col">Category</th>
+      <th scople="col">Price</th>
+      <th scople="col">Quantity</th>
+      </tr></thead><tbody>';
+    while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
+       print '<tr>';
+       foreach ($row as $item) {
+           print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+       }
+       print '</tr>';
+    }
+    print '</tbody></table></div>';
+    
+    
+    oci_close($conn); ?>
+    
+    <form id="deleteProduct" method="post">
+	    <div class="form-group">
+		    <input class="btn btn-danger" id="deleteButton" type="button" value="Delete" onClick="delete_product()" disabled="true">
+	    </div>
+    </form>
+	  
+<?php	} elseif ($rid) { ?>
     
     <h1>Orders For Restaurant #<?php echo $rid ?></h1>
     
@@ -114,7 +183,7 @@
     
     if ($r) {
       // Fetch each row in an associative array
-      print '<div class="table-responsive"><table class="table table-bordered table-hover mb-5">
+      print '<div id="orderTable" class="table-responsive"><table class="table table-bordered table-hover">
         <thead><tr>';
       if ($showOID != 'show') { print '<th scople="col">OID</th>'; }
       if ($showCost != 'show') { print '<th scople="col">Cost</th>'; }
@@ -143,20 +212,33 @@
       print  "\n</pre>\n";
     }
     
-    oci_close($conn);
-  } else { ?>
+    oci_close($conn); ?>
+    
+    <form id="next" method="get">
+      <div class="form-group">
+        <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_another_form()" disabled="true">
+      </div>
+    </form>
+    
+<?php  } else { ?>
     
     <h1>Restaurants</h1>
     
     <?php // Create connection to Oracle
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     
+    $deleteRid = $_POST['delete_rid'];
+    
+    $delteQuery = 'delete from restaurant where rid='.$deleteRid.'';
+    $delteStid = oci_parse($conn, $delteQuery);
+    $delteR = oci_execute($delteStid);
+    
     $query = 'select * from restaurant';
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
     
     // Fetch each row in an associative array
-    print '<div id="table" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
+    print '<div id="restaurantTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
       <th scople="col">RID</th>
       <th scople="col">Name</th>
       <th scople="col">Phone</th>
@@ -175,6 +257,12 @@
     print '</tbody></table></div>';
     
     oci_close($conn); ?>
+    
+    <form id="deleteRestaurant" method="post">
+	    <div class="form-group">
+		    <input class="btn btn-danger" id="deleteButton" type="button" value="Delete" onClick="delete_restaurant()" disabled="true">
+	    </div>
+    </form>
     
     <form id="next" method="get">
       <div class="form-group">
