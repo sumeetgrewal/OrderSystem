@@ -13,7 +13,12 @@ $(document).ready(function() {
   $('#productTable').on('click', 'tbody tr', function(event) {
     $(this).addClass('active').siblings().removeClass('active');
     $('#deleteButton').prop("disabled", false);
-  });  
+  });
+  
+  $('#distributorTable').on('click', 'tbody tr', function(event) {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('#submitButton').prop("disabled", false);
+  });
 });
 
 function submit_form() {
@@ -26,14 +31,27 @@ function submit_form() {
       $("#next").submit();
   } else {
     alert("Wrong password");
-  }
-  
+  } 
 }
 
 function submit_another_form() {
   $value = $('#orderTable .active td').html();
   $('#next').append('<input type="hidden" name="oid" value="'+$value+'" />');
   $("#next").submit();
+}
+
+function submit_dist_form() {
+  $value = $('#distributorTable .active td').html();
+  $('#next').append('<input type="hidden" name="did" value="'+$value+'" />');
+  
+  $pass = prompt("Please enter password", "");
+
+  if ($pass == $value) {
+      $("#next").submit();
+  } else {
+    alert("Wrong password");
+  }
+  
 }
 
 function delete_restaurant() {
