@@ -228,25 +228,12 @@ rid, name, phone, unitNo, street, city, province)
 VALUES (
 	28, 'Tenen', '6043366665', 7569, 'Royal Oak Avenue', 'Burnaby', 'BC');
 	
-	
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
 VALUES (
-	29, 'Chad Thai', '6046771489', 4010, 'E Hastings St', 'Burnaby', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	30, 'Tasty Indian Bistro', '6045079393', 8295, 'Scott Road', 'Surrey', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	31, 'The Greek Corner', '6045033780', 7218, 'King George Highway', 'Surrey', 'BC');
-
+	29, 'Tasty Indian Bistro', '6045079393', 8295, 'Scott Road', 'Surrey', 'BC');
 	
 --````````````````````````````````````````````````````````````````````````````````
-
 
 INSERT INTO supplier (
 sid, name, phone) 
@@ -691,29 +678,81 @@ VALUES (
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	99, '0.00', 'delivered', '1/01/18', '1/01/18', 10, 3003, 998);
+	100, '0.00', 'delivered', '1/03/18', '19/03/18', 10, 3003, 998);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	 100, '0.00', 'delivered', '3/01/18', '3/01/18', 11, 3005, 999);
+	101, '0.00', 'ordered', '14/03/18', '01/04/18', 11, 3005, 999);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	101, '0.00', 'delivered', '5/01/18', '5/01/18', 12, 3007, 1000);
+	102, '0.00', 'processing', '06/04/18', '12/04/18', 11, 3007, 1000);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	102, '0.00', 'delivered', '10/01/18', '11/01/18', 13, 3009, 1001);
+	103, '0.00', 'processing', '27/03/18', '31/03/18', 11, 3015, 1004);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	103, '0.00', 'shipped', '16/02/18', '16/02/18', 14, 3011, 1002);
+	104, '0.00', 'delivered', '16/02/18', '20/02/18', 12, 3007, 1000);
 
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	105, '0.00', 'delivered', '14/02/18', '19/02/18', 13, 3013, 1003);
 
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	106, '0.00', 'ordered', '14/03/18', '01/04/18', 14, 3021, 1004);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	107, '0.00', 'delivered', '31/01/18', '02/02/18', 14, 3011, 1002);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	108, '0.00', 'ordered', '16/03/18', '02/04/18', 15, 3009, 1005);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	109, '0.00', 'delivered', '06/03/18', '12/03/18', 15, 3017, 1005);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	110, '0.00', 'processing', '28/03/18', '5/04/18', 16, 3019, 1000);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	111, '0.00', 'ordered', '20/03/18', '15/04/18', 17, 3017, 1002);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	112, '0.00', 'ordered', '15/03/18', '6/04/18', 18, 3013, 1003);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	113, '0.00', 'delivered', '01/03/18', '12/03/18', 18, 3021, 1004);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	114, '0.00', 'ordered', '19/03/18', '10/04/18', 19, 3003, 998);
+
+	
+-- restaurants 10-19 have orders, 20-29 don't have orders
+	
 -- ``````````````````````````````````````````````````````````````````````
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
@@ -874,6 +913,7 @@ VALUES (
 
 --`````````````````````````````````````````````````````````````````````````
 
+/*
 
 INSERT INTO contain (
 oid, pid, sid, quantity) 
@@ -902,7 +942,8 @@ INSERT INTO contain (
 oid, pid, sid, quantity) 
 VALUES (
 	103, 99995, 3011, 105); 
-
+	
+*/
 --``````````````````````````````````````````````````````````````````````
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
