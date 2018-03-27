@@ -907,7 +907,27 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	000, 99999, 3005, 110, 'Available'); 
+	000, 99993, 3003, 110, 'Available');
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	000, 99992, 3003, 123, 'Available');
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	000, 99988, 3003, 321, 'Available');
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	000, 99987, 3003, 234, 'Available');
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	010, 99999, 3005, 110, 'Available'); 
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
@@ -917,37 +937,107 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	020, 99997, 3007, 200, 'Available'); 
+	010, 99986, 3005, 187, 'Available'); 
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	030, 99996, 3009, 110, 'Available'); 
+	010, 99985, 3005, 153, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	010, 99984, 3005, 190, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	010, 99983, 3005, 194, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	020, 99997, 3007, 200, 'Available');
+	
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	020, 99982, 3007, 234, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	020, 99981, 3007, 825, 'Available');
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	020, 99980, 3007, 372, 'Available');
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99996, 3009, 923, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99994, 3009, 374, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99979, 3009, 912, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99978, 3009, 562, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99977, 3009, 362, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99976, 3009, 134, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99975, 3009, 121, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99974, 3009, 461, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99973, 3009, 321, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	030, 99972, 3009, 421, 'Available');
+	
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	100, 99972, 3009, 539, 'Available'); 
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	100, 99977, 3009, 153, 'Available'); 
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
 	040, 99995, 3011, 0, 'Unavailable');  
-
-INSERT INTO stores (
-wid, pid, sid, onHand, status) 
-VALUES (
-	050, 99994, 3009, 0, 'Unavailable');
-
-INSERT INTO stores (
-wid, pid, sid, onHand, status) 
-VALUES (
-	060, 99993, 3003, 0, 'Unavailable');
-
-INSERT INTO stores (
-wid, pid, sid, onHand, status) 
-VALUES (
-	070, 99992, 3003, 0, 'Unavailable');
-
-INSERT INTO stores (
-wid, pid, sid, onHand, status) 
-VALUES (
-	080, 99991, 3003, 0, 'Unavailable');
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
