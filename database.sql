@@ -757,7 +757,7 @@ VALUES (
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	000, '7784444445', 204, 'Main St', 'Vancouver', 'BC', 3003);
+	150, '7784444445', 204, 'Main St', 'Vancouver', 'BC', 3003);
 
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
@@ -948,22 +948,22 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	000, 99993, 3003, 110, 'Available');
+	150, 99993, 3003, 110, 'Available');
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	000, 99992, 3003, 123, 'Available');
+	150, 99992, 3003, 123, 'Available');
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	000, 99988, 3003, 321, 'Available');
+	150, 99988, 3003, 321, 'Available');
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	000, 99987, 3003, 234, 'Available');
+	150, 99987, 3003, 234, 'Available');
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
