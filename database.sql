@@ -276,7 +276,7 @@ VALUES (
 INSERT INTO supplier (
 sid, name, phone) 
 VALUES (
-	3013, 'Bacon Bros', '7780002223');
+	3013, 'Baking Bros', '7780002223');
 
 INSERT INTO supplier (
 sid, name, phone) 
@@ -597,7 +597,95 @@ pid, name, category, price, sid)
 VALUES (
 	99958, 'Cooling Rack', 'Baking Supplies', '200.00', 3015);
 	
--- Suppliers 3017, 3018, 3019, 3021
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99957, 'Oregano', 'Spices', '45.98', 3017);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99956, 'Paprika', 'Spices', '42.98', 3017);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99955, 'Organic Turmeric', 'Spices', '40.98', 3017);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99954, 'Garam Masala', 'Spices', '55.90', 3017);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99953, 'Vanilla Extract', 'Baking Supplies', '46.25', 3017);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99952, 'Almond Extract', 'Baking Supplies', '60.25', 3017);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99951, 'Garbage Bags', 'Cleaning Supplies', '92.35', 3019);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99950, 'Dish Detergent', 'Cleaning Supplies', '104.50', 3019);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99949, 'Mop Heads', 'Cleaning Supplies', '35.99', 3019);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99948, 'Sanitizer', 'Cleaning Supplies', '120.50', 3019);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99947, 'Bar Cloth', 'Cleaning Supplies', '21.00', 3019);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99946, '12 OZ Mug', 'SmallWares', '40.00', 3021);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99945, '16 OZ Mug', 'SmallWares', '40.00', 3021);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99944, '16 OZ Glass', 'SmallWares', '45.00', 3021);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99943, '5 LB Bag', 'Packaging', '52.99', 3021);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99942, 'Plastic Bag', 'Packaging', '50.99', 3021);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99941, 'Soup Container', 'Packaging', '46.50', 3021);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99940, 'Soup Container Lid', 'Packaging', '34.50', 3021);
 
 --``````````````````````````````````````````````````````````````````````````
 INSERT INTO orders (
