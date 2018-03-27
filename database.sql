@@ -361,6 +361,30 @@ did, name, phone)
 VALUES (
 	1008, 'Canucks (Dont) Deliver', '77877871239');
 
+	/*
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1009, 'Supersonic Delivery', '77877871240');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1011, 'Mach 9 Distribution', '77877871241');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1012, 'Taka Logistics', '7787781242');
+
+
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1013, 'Just Justin', '7787781243');  */ 
+
 --````````````````````````````````````````````````````````````````````````
 
 
@@ -387,7 +411,7 @@ VALUES (
 INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
-	99995, 'Soy Sauce', 'Condiments', '259.99', 3011);
+	99995, 'Soy Sauce', 'Condiments', '259.99', 3011);  
 
 --``````````````````````````````````````````````````````````````````````````
 INSERT INTO orders (
@@ -441,6 +465,57 @@ INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
 	040, '7784444449', 604, 'Westbrooke', 'Vancouver', 'BC', 3011) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	050, '7784444450', 704, 'Commerical', 'Vancouver', 'BC', 3013) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	060, '7784444451', 804, 'Davie', 'Vancouver', 'BC', 3015) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	070, '7784444452', 904, 'Burrard', 'Vancouver', 'BC', 3017) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	080, '7784444453', 104, 'Clown St.', 'Burnaby', 'BC', 3019) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	090, '7784444454', 114, 'Cheese St.', 'Vancouver', 'BC', 3021) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	100, '7784444455', 214, 'Canal St.', 'Surrey', 'BC', 3009) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	110, '7784444456', 314, 'Colebrook', 'Surrey', 'BC', 3011) ;
+	
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	120, '7784444457', 414, 'Cardinal', 'Abbotsford', 'BC', 3013) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	130, '7784444458', 514, 'Azure', 'Abbotsford', 'BC', 3015) ;
+
+	INSERT INTO warehouse (
+wid, phone, unitNo, street, city, province, sid) 
+VALUES (
+	140, '7784444459', 614, 'Crimson', 'Abbotsford', 'BC', 3015) ;
 
 --`````````````````````````````````````````````````````````````````````````
 INSERT INTO contracts (
