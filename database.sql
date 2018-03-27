@@ -343,7 +343,7 @@ did, name, phone)
 VALUES (
 	1005, 'Penguins Derlivery', '77877871236');
 
-	
+/*	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
@@ -361,7 +361,7 @@ did, name, phone)
 VALUES (
 	1008, 'Canucks (Dont) Deliver', '77877871239');
 
-	/*
+	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
@@ -527,18 +527,47 @@ INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3005, 999);
+
 INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3007, 1000);
+
 INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3009, 1001);
+
 INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3011, 1002);
+
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3013, 1003);
+
+	INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3015, 1004);
+
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3017, 1005);
+
+	INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3019, 1005);
+
+	INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3021, 1004);
+
 
 --`````````````````````````````````````````````````````````````````````````
 
@@ -596,3 +625,33 @@ INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
 	040, 99995, 3011, 0, 'Unavailable');  
+
+INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	050, 99994, 3013, xxx, 'Unavailable');
+
+	INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	060, 99993, 3015, xxx, 'Unavailable');
+
+	INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	070, 99992, 3017, xxx, 'Unavailable');
+
+	INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	080, 99991, 3019, xxx, 'Unavailable');
+
+	INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	090, 99990, 3021, xxx, 'Unavailable');
+
+	INSERT INTO stores (
+wid, pid, sid, onHand, status) 
+VALUES (
+	100, 99989, 3021, xxx, 'Unavailable');            
