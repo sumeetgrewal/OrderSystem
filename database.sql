@@ -273,27 +273,27 @@ sid, name, phone)
 VALUES (
 	3011, 'Nam Foods', '7780002222');
 
-	INSERT INTO supplier (
+INSERT INTO supplier (
 sid, name, phone) 
 VALUES (
 	3013, 'Bacon Bros', '7780002223');
 
-	INSERT INTO supplier (
+INSERT INTO supplier (
 sid, name, phone) 
 VALUES (
 	3015, 'Felton Foods', '7780002224');
 
-	INSERT INTO supplier (
+INSERT INTO supplier (
 sid, name, phone) 
 VALUES (
 	3017, 'Yo Gotti', '7780002225');
 
-	INSERT INTO supplier (
+INSERT INTO supplier (
 sid, name, phone) 
 VALUES (
 	3019, 'Kumar Enterprises', '7789941393');
 
-	INSERT INTO supplier (
+INSERT INTO supplier (
 sid, name, phone) 
 VALUES (
 	3021, 'Grewal Corp.', '6044451630');
@@ -303,7 +303,7 @@ VALUES (
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	998, 'Cool Guys', '772334123');
+	998, 'Cool Guys', '7782334123');
 
 INSERT INTO distributor (
 did, name, phone) 
@@ -318,60 +318,60 @@ VALUES (
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1001, 'P=/=NP', '7786544321');
+	1001, 'P=/=NP', '6049302121');
 
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1002, 'Generic Distributors', '77877871233');
-
-	
-INSERT INTO distributor (
-did, name, phone) 
-VALUES (
-	1003, 'Dis Tributors', '77877871234');
+	1002, 'Generic Distributors', '7782461233');
 
 	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1004, 'Oreo Cheesecakers Delivers', '77877871235');
+	1003, 'Dis Tributors', '7787870024');
 
 	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1005, 'Penguins Derlivery', '77877871236');
+	1004, 'Cheesecake Delivers', '7782465235');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1005, 'Penguins Delivery', '7787871236');
 
 /*	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1006, 'Silver Knights Distribution', '77877871237');
+	1006, 'Silver Knights Distribution', '7787783030');
 
 	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1007, 'Kings Distribution', '77877871238');
+	1007, 'Kings Distribution', '7787371238');
 
 	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1008, 'Canucks (Dont) Deliver', '77877871239');
+	1008, 'Canucks (Dont) Deliver', '7787700009');
 
 	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1009, 'Supersonic Delivery', '77877871240');
+	1009, 'Supersonic Delivery', '7787787140');
 
 	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1011, 'Mach 9 Distribution', '77877871241');
+	1011, 'Mach 9 Distribution', '7787112241');
 
 	
 INSERT INTO distributor (
@@ -383,15 +383,14 @@ VALUES (
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1013, 'Just Justin', '7787781243');  */ 
+	1013, 'Just Justin', '7787781203');  */ 
 
 --````````````````````````````````````````````````````````````````````````
-
 
 INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
-	99999, 'Crab', 'Crustaceans', '99.99', 3003);
+	99999, 'Crab', 'Crustaceans', '99.99', 3005);
 
 INSERT INTO product (
 pid, name, category, price, sid) 
@@ -406,55 +405,85 @@ VALUES (
 INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
-	99996, 'Ketchup', 'Condiments', '159.99', 3009);
+	99996, 'Ketchup', 'Condiments', '42.99', 3009);
 
 INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
-	99995, 'Soy Sauce', 'Condiments', '259.99', 3011);  
+	99995, 'Soy Sauce', 'Condiments', '60.80', 3011);  
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99994, 'Mustard', 'Condiments', '40.99', 3009);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99993, 'Romaine Lettuce', 'Produce', '39.99', 3003);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99992, 'Tomatoes', 'Produce', '50.25', 3003);
+		 
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99991, 'Kale', 'Produce', '46.00', 3003);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99990, 'Dragonfruit', 'Produce', '64.50', 3019);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99989, 'Brie', 'Dairy Products', '75.75', 3017);
 
 --``````````````````````````````````````````````````````````````````````````
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	99, '99.99', 'delivered', '1/01/18', '1/01/18', 10, 3003, 998);
+	99, '0.00', 'delivered', '1/01/18', '1/01/18', 10, 3003, 998);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	 100, '59.99', 'delivered', '3/01/18', '3/01/18', 11, 3005, 999);
+	 100, '0.00', 'delivered', '3/01/18', '3/01/18', 11, 3005, 999);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	101, '109.99', 'delivered', '5/01/18', '5/01/18', 12, 3007, 1000);
+	101, '0.00', 'delivered', '5/01/18', '5/01/18', 12, 3007, 1000);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	102, '159.99', 'delivered', '10/01/18', '11/01/18', '13', '3009', 1001);
+	102, '0.00', 'delivered', '10/01/18', '11/01/18', 13, 3009, 1001);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	103, '259.99', 'shipped', '16/02/18', '16/02/18', 14, 3011, 1002);
+	103, '0.00', 'shipped', '16/02/18', '16/02/18', 14, 3011, 1002);
 
 
 -- ``````````````````````````````````````````````````````````````````````
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	000, '7784444445', 204, 'Main', 'Vancouver', 'BC', 3003);
+	000, '7784444445', 204, 'Main St', 'Vancouver', 'BC', 3003);
 
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	010, '7784444446', 304, 'Cambie', 'Vancouver', 'BC', 3005);
+	010, '7784444446', 304, 'Cambie St', 'Vancouver', 'BC', 3005);
 
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	020, '7784444447', 404, 'Victoria', 'Vancouver', 'BC', 3007);
+	020, '7784444447', 404, 'Victoria St', 'Vancouver', 'BC', 3007);
 
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
@@ -464,58 +493,57 @@ VALUES (
 INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	040, '7784444449', 604, 'Westbrooke', 'Vancouver', 'BC', 3011) ;
+	040, '7784444449', 604, 'Wesbrooke Avenue', 'Vancouver', 'BC', 3011) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	050, '7784444450', 704, 'Commerical', 'Vancouver', 'BC', 3013) ;
+	050, '7784444450', 704, 'Commercial', 'Vancouver', 'BC', 3013) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	060, '7784444451', 804, 'Davie', 'Vancouver', 'BC', 3015) ;
+	060, '7784444451', 804, 'Davie St', 'Vancouver', 'BC', 3015) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	070, '7784444452', 904, 'Burrard', 'Vancouver', 'BC', 3017) ;
+	070, '7784444452', 904, 'Burrard St', 'Vancouver', 'BC', 3017) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	080, '7784444453', 104, 'Clown St.', 'Burnaby', 'BC', 3019) ;
+	080, '7784444453', 104, 'Clown St', 'Burnaby', 'BC', 3019) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	090, '7784444454', 114, 'Cheese St.', 'Vancouver', 'BC', 3021) ;
+	090, '7784444454', 114, 'Cheese St', 'Vancouver', 'BC', 3021) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	100, '7784444455', 214, 'Canal St.', 'Surrey', 'BC', 3009) ;
+	100, '7784444455', 214, 'Canal St', 'Surrey', 'BC', 3009) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	110, '7784444456', 314, 'Colebrook', 'Surrey', 'BC', 3011) ;
+	110, '7784444456', 314, 'Colebrook Avenue', 'Surrey', 'BC', 3011) ;
 	
-
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	120, '7784444457', 414, 'Cardinal', 'Abbotsford', 'BC', 3013) ;
+	120, '7784444457', 414, 'Cardinal Avenue', 'Abbotsford', 'BC', 3013) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
 	130, '7784444458', 514, 'Azure', 'Abbotsford', 'BC', 3015) ;
 
-	INSERT INTO warehouse (
+INSERT INTO warehouse (
 wid, phone, unitNo, street, city, province, sid) 
 VALUES (
-	140, '7784444459', 614, 'Crimson', 'Abbotsford', 'BC', 3015) ;
+	140, '7784444459', 614, 'Crimson St', 'Abbotsford', 'BC', 3015) ;
 
 --`````````````````````````````````````````````````````````````````````````
 INSERT INTO contracts (
@@ -548,22 +576,52 @@ sid, did)
 VALUES (
 	3013, 1003);
 
-	INSERT INTO contracts (
+INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3015, 1004);
+	
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3015, 1005);
+	
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3015, 1006);
 
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3017, 1002);
+	
 INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3017, 1005);
 
-	INSERT INTO contracts (
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3019, 1000);
+	
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3019, 1001);
+	
+INSERT INTO contracts (
+sid, did) 
+VALUES (
+	3011, 1006);
+
+INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3019, 1005);
 
-	INSERT INTO contracts (
+INSERT INTO contracts (
 sid, did) 
 VALUES (
 	3021, 1004);
@@ -575,7 +633,7 @@ VALUES (
 INSERT INTO contain (
 oid, pid, sid, quantity) 
 VALUES (
-	99, 99999, 3003, 100); 
+	99, 99999, 3005, 100); 
 
 
 INSERT INTO contain (
@@ -604,7 +662,7 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	000, 99999, 3003, 110, 'Available'); 
+	000, 99999, 3005, 110, 'Available'); 
 
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
@@ -629,29 +687,29 @@ VALUES (
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	050, 99994, 3013, xxx, 'Unavailable');
+	050, 99994, 3009, 0, 'Unavailable');
 
-	INSERT INTO stores (
+INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	060, 99993, 3015, xxx, 'Unavailable');
+	060, 99993, 3003, 0, 'Unavailable');
 
-	INSERT INTO stores (
+INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	070, 99992, 3017, xxx, 'Unavailable');
+	070, 99992, 3003, 0, 'Unavailable');
 
-	INSERT INTO stores (
+INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	080, 99991, 3019, xxx, 'Unavailable');
+	080, 99991, 3003, 0, 'Unavailable');
 
-	INSERT INTO stores (
+INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	090, 99990, 3021, xxx, 'Unavailable');
+	090, 99990, 3019, 0, 'Unavailable');
 
-	INSERT INTO stores (
+INSERT INTO stores (
 wid, pid, sid, onHand, status) 
 VALUES (
-	100, 99989, 3021, xxx, 'Unavailable');            
+	100, 99989, 3017, 0, 'Unavailable');            
