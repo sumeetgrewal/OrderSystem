@@ -273,7 +273,32 @@ sid, name, phone)
 VALUES (
 	3011, 'Nam Foods', '7780002222');
 
--- `````````````````````````````````````````````````````````````
+	INSERT INTO supplier (
+sid, name, phone) 
+VALUES (
+	3013, 'Bacon Bros', '7780002223');
+
+	INSERT INTO supplier (
+sid, name, phone) 
+VALUES (
+	3015, 'Felton Foods', '7780002224');
+
+	INSERT INTO supplier (
+sid, name, phone) 
+VALUES (
+	3017, 'Yo Gotti', '7780002225');
+
+	INSERT INTO supplier (
+sid, name, phone) 
+VALUES (
+	3019, 'Kumar Enterprises', '7789941393');
+
+	INSERT INTO supplier (
+sid, name, phone) 
+VALUES (
+	3021, 'Grewal Corp.', '6044451630');
+
+-- ````````````````````````````````````````````````````````````
 
 INSERT INTO distributor (
 did, name, phone) 
@@ -299,6 +324,42 @@ INSERT INTO distributor (
 did, name, phone) 
 VALUES (
 	1002, 'Generic Distributors', '77877871233');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1003, 'Dis Tributors', '77877871234');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1004, 'Oreo Cheesecakers Delivers', '77877871235');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1005, 'Penguins Derlivery', '77877871236');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1006, 'Silver Knights Distribution', '77877871237');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1007, 'Kings Distribution', '77877871238');
+
+	
+INSERT INTO distributor (
+did, name, phone) 
+VALUES (
+	1008, 'Canucks (Dont) Deliver', '77877871239');
 
 --````````````````````````````````````````````````````````````````````````
 
