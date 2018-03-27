@@ -146,19 +146,105 @@ VALUES (
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
-        12, 'Green Leaf', '7785191783', 51, 'Broadway', 'Vancouver', 'BC');
+        12, 'Green Leaf', '7785191783', 51, 'W Broadway', 'Vancouver', 'BC');
 
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
-	 13, 'Nuba', '7786191784', 41, 'Burrard', 'Vancouver', 'BC');
+	 13, 'Nuba', '7786191784', 41, 'Burrard St', 'Vancouver', 'BC');
 
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
-	14, 'The Keg', '7787191785', 31, 'Granville', 'Vancouver', 'BC');
+	14, 'The Keg', '7787191785', 31, 'Granville St', 'Vancouver', 'BC');
 
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	15, 'Maenam', '6047305579', 1938, 'W 4th', 'Vancouver', 'BC');
 
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	16, 'Earls', '6047365663', 1601, 'W Broadway', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	17, 'Cactus Club Cafe', '6046207410', 1085, 'Canada Pl', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	18, 'Guu', '6046858678', 1698, 'Robson St', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	19, 'Guu',  '6046858817', 838, 'Thurlow St', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	20, 'Hapa Izakaya', '6046894272', 1479, 'Robson St', 'Vancouver', 'BC');
+
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	21, 'Miku', '6045683900', 200, 'Granville St', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	22, 'Tableau Bar Bistro', '6046398692', 1181, 'Melville St', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	23, 'Bambudda', '6044280301', 99, 'Powell St', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	24, 'Belgard Kitchen', '6045661989', 55, 'Dunlevy Ave', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	25, 'Cuchillo', '6045597585', 261, 'Powell St', 'Vancouver', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	26, 'Nicli Antica', '6046696985', 62, 'E Cordova St', 'Vancouver', 'BC');
+
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	27, 'Trattoria', '6044248779', 4501, 'Kingsway', 'Burnaby', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	28, 'Tenen', '6043366665', 7569, 'Royal Oak Avenue', 'Burnaby', 'BC');
+	
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	29, 'Chad Thai', '6046771489', 4010, 'E Hastings St', 'Burnaby', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	30, 'Tasty Indian Bistro', '6045079393', 8295, 'Scott Road', 'Surrey', 'BC');
+	
+INSERT INTO restaurant (
+rid, name, phone, unitNo, street, city, province)
+VALUES (
+	31, 'The Greek Corner', '6045033780', 7218, 'King George Highway', 'Surrey', 'BC');
+
+	
 --````````````````````````````````````````````````````````````````````````````````
 
 
