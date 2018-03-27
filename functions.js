@@ -19,6 +19,11 @@ $(document).ready(function() {
     $(this).addClass('active').siblings().removeClass('active');
     $('#submitButton').prop("disabled", false);
   });
+
+    $('#supplierTable').on('click', 'tbody tr', function(event) {
+        $(this).addClass('active').siblings().removeClass('active');
+        $('#submitButton').prop("disabled", false);
+    });
 });
 
 function submit_form() {
@@ -52,6 +57,20 @@ function submit_dist_form() {
     alert("Wrong password");
   }
   
+}
+
+function submit_supplier_form() {
+    $value = $('#supplierTable .active td').html();
+    $('#next').append('<input type="hidden" name="sid" value="'+$value+'" />');
+
+    $pass = prompt("Please enter password", "");
+
+    if ($pass == $value) {
+        $("#next").submit();
+    } else {
+        alert("Wrong password");
+    }
+
 }
 
 function delete_restaurant() {
