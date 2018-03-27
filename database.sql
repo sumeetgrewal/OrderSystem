@@ -390,7 +390,7 @@ VALUES (
 INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
-	99999, 'Crab', 'Crustaceans', '99.99', 3005);
+	99999, 'Crab', 'Seafood', '99.99', 3005);
 
 INSERT INTO product (
 pid, name, category, price, sid) 
@@ -441,6 +441,163 @@ INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
 	99989, 'Brie', 'Dairy Products', '75.75', 3017);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99988, 'Bell Peppers', 'Produce', '35.00', 3003);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99987, 'Oranges', 'Produce', '37.89', 3003);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99986, 'Oysters', 'Seafood', '89.99', 3005);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99985, 'Tuna', 'Seafood', '85.75', 3005);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99984, 'Chicken', 'Poultry', '82.45', 3005);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99983, 'Salmon', 'Seafood', '104.99', 3005);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99982, 'Tuna', 'Seafood', '92.45', 3007);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99981, 'Veal', 'Seafood', '125.00', 3007);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99980, 'Mussels', 'Seafood', '101.99', 3007);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99979, 'Hamburger Buns', 'Baked Goods', '26.99', 3009);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99978, 'Hot Dog Buns', 'Baked Goods', '23.99', 3009);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99977, '100% WW Bread', 'Baked Goods', '22.99', 3009);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99976, '60% WW Bread', 'Baked Goods', '22.99', 3009);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99975, 'Everything Bagels', 'Baked Goods', '18.00', 3009);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99974, 'Cran Raisin Bagels', 'Baked Goods', '18.00', 3009);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99973, 'Blueberry Muffins', 'Baked Goods', '26.50', 3009);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99972, 'Choc. Chip Muffins', 'Baked Goods', '27.50', 3009);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99971, 'White Vinegar', 'Oil and Vinegar', '36.00', 3011);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99970, 'Rice Vinegar', 'Oil and Vinegar', '44.20', 3011);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99969, 'Olive Oil', 'Oil and Vinegar', '79.99', 3011);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99968, 'Canola Oil', 'Oil and Vinegar', '44.20', 3011);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99967, 'Olive Oil', 'Oil and Vinegar', '89.99', 3013);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99966, 'White Sugar', 'Baking', '50.00', 3013);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99965, 'Baking Soda', 'Baking', '15.23', 3013);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99964, 'White Sugar', 'Baking', '50.00', 3013);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99963, 'Vanilla Extract', 'Baking', '50.00', 3013);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99962, 'Whole Wheat Flour', 'Baking', '67.80', 3015);
+	
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99961, 'Bran Flour', 'Baking', '65.75', 3015);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99960, 'Egg Yolk', 'Baking', '66.00', 3015);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99959, 'Muffin Pan', 'Baking Supplies', '80.00', 3015);
+
+INSERT INTO product (
+pid, name, category, price, sid) 
+VALUES (
+	99958, 'Cooling Rack', 'Baking Supplies', '200.00', 3015);
+	
+-- Suppliers 3017, 3018, 3019, 3021
 
 --``````````````````````````````````````````````````````````````````````````
 INSERT INTO orders (
