@@ -1124,77 +1124,40 @@ INSERT INTO contain VALUES (128, 99940, 3021, 3021, 282);
 
 CREATE VIEW orderCosts AS select temp.oid, SUM(totalPrice) as orderPrice from ( select p.price, c.quantity, (p.price*c.quantity) as totalPrice, o.oid from orders o , product p,contain c where p.pid=c.pid AND o.oid=c.oid) temp, orders b where b.oid=temp.oid group by temp.oid;
 
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=100) where o.oid=100;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=101) where o.oid=101;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=102) where o.oid=102;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=103) where o.oid=103;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=104) where o.oid=104;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=105) where o.oid=105;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=106) where o.oid=106;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=107) where o.oid=107;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=108) where o.oid=108;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=109) where o.oid=109;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=110) where o.oid=110;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=111) where o.oid=111;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=112) where o.oid=112;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=113) where o.oid=113;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=114) where o.oid=114;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=115) where o.oid=115;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=116) where o.oid=116;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=117) where o.oid=117;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=118) where o.oid=118;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=119) where o.oid=119;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=120) where o.oid=120;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=121) where o.oid=121;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=122) where o.oid=122;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=123) where o.oid=123;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=124) where o.oid=124;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=125) where o.oid=125;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=126) where o.oid=126;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=127) where o.oid=127;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=128) where o.oid=128;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=129) where o.oid=129;
-update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=130) where o.oid=130;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=100) where oid=100;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=101) where oid=101;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=102) where oid=102;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=103) where oid=103;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=104) where oid=104;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=105) where oid=105;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=106) where oid=106;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=107) where oid=107;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=108) where oid=108;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=109) where oid=109;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=110) where oid=110;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=111) where oid=111;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=112) where oid=112;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=113) where oid=113;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=114) where oid=114;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=115) where oid=115;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=116) where oid=116;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=117) where oid=117;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=118) where oid=118;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=119) where oid=119;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=120) where oid=120;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=121) where oid=121;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=122) where oid=122;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=123) where oid=123;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=124) where oid=124;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=125) where oid=125;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=126) where oid=126;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=127) where oid=127;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=128) where oid=128;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=129) where oid=129;
+update orders set cost=cost+(select t.orderPrice from orderCosts t where t.oid=130) where oid=130;
 
 drop view orderCosts;
 
-
-/*
-	
-INSERT INTO orders (
-oid, cost, status, orderDate, shipDate, rid, sid, did) 
-VALUES (
-	100, '0.00', 'delivered', '1/03/18', '19/03/18', 10, 3003, 998);
-
-INSERT INTO contain (
-oid, pid, sid, quantity) 
-VALUES (
-	99, 99999, 3005, 100); 
-
-
-INSERT INTO contain (
-oid, pid, sid, quantity) 
-VALUES (
-	100, 99998, 3005, 150); 
-
-
-INSERT INTO contain (
-oid, pid, sid, quantity) 
-VALUES (
-	101, 99997, 3007, 200); 
-
-INSERT INTO contain (
-oid, pid, sid, quantity) 
-VALUES (
-	102, 99996, 3009, 105); 
-
-
-INSERT INTO contain (
-oid, pid, sid, quantity) 
-VALUES (
-	103, 99995, 3011, 105); 
-	
-*/
 --``````````````````````````````````````````````````````````````````````
 INSERT INTO stores (
 wid, pid, sid, onHand, status) 

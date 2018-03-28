@@ -5,7 +5,7 @@
   $sid = $_POST["sid"];
   $status = $_POST["status"];
 	if($did) { ?>
-		<h1>Distributer # <?php echo $did ?></h1>
+		<h1>Distributer #<?php echo $did ?></h1>
 	  <?php // Create connection to Oracle
 	  $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
@@ -27,8 +27,8 @@
 	     print '</tr>';
 	  }
 	  print '</tbody></table></div>'; ?>
-		<form id="filter" method="post">
 	  <hr>
+		<form id="filter" method="post">
       <h5>Filter</h5>
       <div class="form-row">
         <div class="col"> 
@@ -40,48 +40,84 @@
         <div class="col">
           <input class="form-control" name="status" type="text" placeholder="Status" <?php echo(isset($_POST['status']) ? 'value="'.$_POST['status'].'"' : '') ?> ><br>
         </div>
-        <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Filter">
       </div>
-      <hr>
+      
+      <h5>Join orders for distributer #<?php echo $did ?> with</h5>
+      <div class="form-group"> 
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="joinRestaurant" value="join" <?php echo(isset($_POST['joinRestaurant'])?'checked="checked"':'') ?> >Restaurant
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="joinSupplier" value="join" <?php echo(isset($_POST['joinSupplier'])?'checked="checked"':'') ?> >Supplier
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="joinWarehouse" value="join" <?php echo(isset($_POST['joinWarehouse'])?'checked="checked"':'') ?> >Warehouse
+        </div>
       </div>
+      
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Filter and Join">
+      </div>
+    </form>
+    <hr>
+      
+<!--
+      <form id="join" method="post">
+	      
+	      <div class="form-group">
+	        <input class="btn btn-primary" type="submit" value="Join">
+	      </div>
       </form>
-      <hr>
+-->
 	  
 	  <h1>All Orders</h1>
 	  
 	  <?php 
 	  
-	  $query2 = 'select o.oid, o.rid, r.name as restname, s.sid, s.name, o.status from orders o, supplier s, restaurant r where o.rid=r.rid AND o.sid=s.sid AND o.did='.$did.'';
-		if ($rid) {
-	  $query2 = $query2 .'AND r.rid='.$rid;
-	  }
-	  if ($sid) {
-	  $query2 = $query2 .'AND s.sid='.$sid;
-	  }
-	  if ($status) {
-	  $query2 = $query2 .'AND o.status='.$status;
-	  }
+	  $joinRestaurant = $_POST['joinRestaurant'];
+	  $joinSupplier = $_POST['joinSupplier'];
+	  $joinWarehouse = $_POST['joinWarehouse'];
+	  
+	  $query2 = 'select o.oid, ';
+	  if ($joinRestaurant == 'join') { $query2 .= 'r.name as restName, r.unitNo as restUnitNo, r.street as restStreet, r.city as restCity, r.province as restProvince, '; }
+	  if ($joinSupplier == 'join') { $query2 .= 's.name as suppName, '; }
+	  if ($joinWarehouse == 'join') { $query2 .= 'w.unitNo as warehouseUnitNo, w.street as warehouseStreet, w.city as warehouseCity, w.province as warehouseProvince, '; }
+	  $query2 .= 'o.status from orders o, supplier s, restaurant r, warehouse w where o.rid=r.rid AND o.sid=s.sid AND s.sid=w.sid AND o.did='.$did.'';
+		if ($rid) { $query2 = $query2 .'AND r.rid='.$rid; }
+	  if ($sid) { $query2 = $query2 .'AND s.sid='.$sid; }
+	  if ($status) { $query2 = $query2 .'AND o.status='.$status; }
 	  $stid2 = oci_parse($conn, $query2);
 	  $r2 = oci_execute($stid2);
 	  
+	  if ($r2) {
 	  // Fetch each row in an associative array
-	  print '<div id="distributorTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
-	    <th scople="col">OID</th>
-	    <th scople="col">RID</th>
-	    <th scople="col">Rest Name</th>
-	    <th scople="col">SID</th>
-	    <th scople="col">Supp Name</th>
-	    <th scople="col">Status</th>
-	    </tr></thead><tbody>';
+	  print '<div id="distributorTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>';
+		print '<th scople="col">OID</th>';
+		if ($joinRestaurant == 'join') { print '<th scople="col">Restaurant Name</th><th scople="col">To: Unit No.</th><th scople="col">To: Street</th><th scople="col">To: City</th><th scople="col">To: Province</th>'; }
+		if ($joinSupplier == 'join') { print '<th scople="col">Supplier Name</th>'; }
+		if ($joinWarehouse == 'join') { print '<th scople="col">From: Unit No.</th><th scople="col">From: Street</th><th scople="col">From: City</th><th scople="col">From: Province</th>'; }
+			print '<th scople="col">Status</th>';
+	    print '</tr></thead><tbody>';
+	    
+	  $count = 0;
 	  while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
 	     print '<tr>';
 	     foreach ($row as $item) {
 	         print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
 	     }
 	     print '</tr>';
+	     $count++;
 	  }
 	  print '</tbody></table></div>';
+	  if ($count == 0) { print '<p>No results found.</p>'; }
+	  } else {
+      $e = oci_error($stid2);  // For oci_execute errors pass the statement handle
+      print htmlentities($e['message']);
+      print "\n<pre>\n";
+      print htmlentities($e['sqltext']);
+      printf("\n%".($e['offset']+1)."s", "^");
+      print  "\n</pre>\n";
+    }
 	  
 	  oci_close($conn); ?>
 	  
