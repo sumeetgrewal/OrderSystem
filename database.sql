@@ -957,39 +957,77 @@ VALUES (
 
 --`````````````````````````````````````````````````````````````````````````
 
-INSERT INTO contain VALUES (101, 99999, 3005, 3005, 50);
-INSERT INTO contain VALUES (101, 99998, 3005, 3005, 25);
-/*
-INSERT INTO contain VALUES (???, 99997, 3005, 50);
-INSERT INTO contain VALUES (???, 99996, 3005, 50);
-INSERT INTO contain VALUES (???, 99995, 3005, 50);
-INSERT INTO contain VALUES (???, 99994, 3005, 50);
-INSERT INTO contain VALUES (???, 99993, 3005, 50);
-INSERT INTO contain VALUES (???, 99992, 3005, 50);
-INSERT INTO contain VALUES (???, 99991, 3005, 50);
-INSERT INTO contain VALUES (???, 99990, 3005, 50);
-INSERT INTO contain VALUES (???, 99989, 3005, 50);
-INSERT INTO contain VALUES (???, 99988, 3005, 50);
-INSERT INTO contain VALUES (???, 99987, 3005, 50);
-INSERT INTO contain VALUES (???, 99986, 3005, 50);
-INSERT INTO contain VALUES (???, 99985, 3005, 50);
-INSERT INTO contain VALUES (???, 99984, 3005, 50);
-INSERT INTO contain VALUES (???, 99983, 3005, 50);
-INSERT INTO contain VALUES (???, 99982, 3005, 50);
-INSERT INTO contain VALUES (???, 99981, 3005, 50);
-INSERT INTO contain VALUES (???, 99980, 3005, 50);
-INSERT INTO contain VALUES (???, 99979, 3005, 50);
-INSERT INTO contain VALUES (???, 99978, 3005, 50);
-INSERT INTO contain VALUES (???, 99977, 3005, 50);
-INSERT INTO contain VALUES (???, 99976, 3005, 50);
-INSERT INTO contain VALUES (???, 99975, 3005, 50);
-INSERT INTO contain VALUES (???, 99974, 3005, 50);
-INSERT INTO contain VALUES (???, 99973, 3005, 50);
-INSERT INTO contain VALUES (???, 99972, 3005, 50);
-INSERT INTO contain VALUES (???, 99971, 3005, 50);
-INSERT INTO contain VALUES (???, 99970, 3005, 50);
-INSERT INTO contain VALUES (???, 99969, 3005, 50);
-*/
+INSERT INTO contain VALUES (100, 99993, 3003, 3003, 10);
+INSERT INTO contain VALUES (100, 99992, 3003, 3003, 10);
+INSERT INTO contain VALUES (100, 99991, 3003, 3003, 10);
+INSERT INTO contain VALUES (100, 99988, 3003, 3003, 10);
+INSERT INTO contain VALUES (100, 99987, 3003, 3003, 10);
+
+INSERT INTO contain VALUES (101, 99999, 3005, 3005, 10);
+INSERT INTO contain VALUES (101, 99998, 3005, 3005, 10);
+INSERT INTO contain VALUES (101, 99986, 3005, 3005, 10);
+INSERT INTO contain VALUES (101, 99985, 3005, 3005, 10);
+INSERT INTO contain VALUES (101, 99984, 3005, 3005, 10);
+INSERT INTO contain VALUES (101, 99983, 3005, 3005, 10);
+
+INSERT INTO contain VALUES (102, 99997, 3007, 3007, 10);
+INSERT INTO contain VALUES (102, 99982, 3007, 3007, 10);
+INSERT INTO contain VALUES (102, 99981, 3007, 3007, 10);
+INSERT INTO contain VALUES (102, 99980, 3007, 3007, 10);
+
+INSERT INTO contain VALUES (104, 99982, 3007, 3007, 10);
+INSERT INTO contain VALUES (104, 99980, 3007, 3007, 10);
+
+INSERT INTO contain VALUES (108, 99996, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99994, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99979, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99978, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99977, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99976, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99975, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99974, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99973, 3009, 3009, 10);
+INSERT INTO contain VALUES (108, 99972, 3009, 3009, 10);
+
+INSERT INTO contain VALUES (107, 99995, 3011, 3011, 10);
+INSERT INTO contain VALUES (107, 99971, 3011, 3011, 10);
+INSERT INTO contain VALUES (107, 99969, 3011, 3011, 10);
+INSERT INTO contain VALUES (107, 99968, 3011, 3011, 10);
+
+INSERT INTO contain VALUES (105, 99967, 3013, 3013, 10);
+INSERT INTO contain VALUES (105, 99966, 3013, 3013, 10);
+INSERT INTO contain VALUES (105, 99965, 3013, 3013, 10);
+INSERT INTO contain VALUES (105, 99964, 3013, 3013, 10);
+INSERT INTO contain VALUES (105, 99963, 3013, 3013, 10);
+
+INSERT INTO contain VALUES (103, 99962, 3015, 3015, 10);
+INSERT INTO contain VALUES (103, 99961, 3015, 3015, 10);
+INSERT INTO contain VALUES (103, 99960, 3015, 3015, 10);
+INSERT INTO contain VALUES (103, 99959, 3015, 3015, 10);
+INSERT INTO contain VALUES (103, 99958, 3015, 3015, 10);
+
+INSERT INTO contain VALUES (109, 99989, 3017, 3017, 10);
+INSERT INTO contain VALUES (109, 99957, 3017, 3017, 10);
+INSERT INTO contain VALUES (109, 99956, 3017, 3017, 10);
+INSERT INTO contain VALUES (109, 99955, 3017, 3017, 10);
+INSERT INTO contain VALUES (109, 99954, 3017, 3017, 10);
+INSERT INTO contain VALUES (109, 99953, 3017, 3017, 10);
+INSERT INTO contain VALUES (109, 99952, 3017, 3017, 10);
+
+INSERT INTO contain VALUES (110, 99990, 3019, 3019, 10);
+INSERT INTO contain VALUES (110, 99951, 3019, 3019, 10);
+INSERT INTO contain VALUES (110, 99950, 3019, 3019, 10);
+INSERT INTO contain VALUES (110, 99949, 3019, 3019, 10);
+INSERT INTO contain VALUES (110, 99948, 3019, 3019, 10);
+INSERT INTO contain VALUES (110, 99947, 3019, 3019, 10);
+
+INSERT INTO contain VALUES (106, 99946, 3021, 3021, 10);
+INSERT INTO contain VALUES (106, 99945, 3021, 3021, 10);
+INSERT INTO contain VALUES (106, 99944, 3021, 3021, 10);
+INSERT INTO contain VALUES (106, 99943, 3021, 3021, 10);
+INSERT INTO contain VALUES (106, 99942, 3021, 3021, 10);
+INSERT INTO contain VALUES (106, 99941, 3021, 3021, 10);
+INSERT INTO contain VALUES (106, 99940, 3021, 3021, 10);
 
 CREATE VIEW orderCosts AS select temp.oid, SUM(totalPrice) as orderPrice from ( select p.price, c.quantity, (p.price*c.quantity) as totalPrice, o.oid from orders o , product p,contain c where p.pid=c.pid AND o.oid=c.oid) temp, orders b where b.oid=temp.oid group by temp.oid;
 
@@ -1008,6 +1046,22 @@ update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t
 update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=112) where o.oid=112;
 update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=113) where o.oid=113;
 update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=114) where o.oid=114;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=115) where o.oid=115;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=116) where o.oid=116;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=117) where o.oid=117;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=118) where o.oid=118;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=119) where o.oid=119;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=120) where o.oid=120;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=121) where o.oid=121;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=122) where o.oid=122;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=123) where o.oid=123;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=124) where o.oid=124;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=125) where o.oid=125;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=126) where o.oid=126;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=127) where o.oid=127;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=128) where o.oid=128;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=129) where o.oid=129;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=130) where o.oid=130;
 
 drop view orderCosts;
 
