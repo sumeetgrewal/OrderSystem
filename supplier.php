@@ -26,11 +26,37 @@ if($sid) { ?>
     }
     print '</tbody></table></div>'; ?>
 
+    <h5>Find Max or Min</h5>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="Max" value="show" <?php echo(isset($_POST['showMax'])?'checked="checked"':"") ?> >MAX
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="Min" value="show" <?php echo(isset($_POST['showMin'])?'checked="checked"':"") ?> >MIN
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Find">
+    </div>
+
     <h1>All Warehouses</h1>
 
     <?php
-    $query2 = 'SELECT w.wid, w.phone, w.unitNo, w.street, w.city, w.province, Tempo.countp FROM supplier s, warehouse w,(select COUNT(DISTINCT pid) AS countp FROM stores st 
-WHERE st.sid ='.$sid.') Tempo WHERE w.sid=s.sid AND s.sid='.$sid.'';
+    $showMax = $_POST['showMax'];
+    $showMin = $_POST['showMin'];
+
+    if ($showMax) { $query2 = 'SELECT w.wid, w.phone, w.unitNo, w.street, w.city, w.province, Tempo.countp FROM supplier s, warehouse w,(select COUNT(DISTINCT pid) AS countp FROM stores st 
+WHERE w.wid = st.wid AND sid ='.$sid.') Tempo WHERE w.sid=s.sid AND s.sid='.$sid.'order by Tempo.countp desc rownum = 1'; }
+    else if ($showMin) {
+        $query2 = 'SELECT w.wid, w.phone, w.unitNo, w.street, w.city, w.province, Tempo.countp FROM supplier s, warehouse w,(select COUNT(DISTINCT pid) AS countp FROM stores st 
+WHERE w.wid = st.wid AND st.sid ='.$sid.') Tempo WHERE w.sid=s.sid AND s.sid='.$sid.'order by Tempo.countp rownum = 1';
+    } else {
+        $query2 = 'SELECT w.wid, w.phone, w.unitNo, w.street, w.city, w.province, Tempo.countp FROM supplier s, warehouse w,(select COUNT(DISTINCT pid) AS countp FROM stores st 
+WHERE w.wid = st.wid AND st.sid ='.$sid.') Tempo WHERE w.sid=s.sid AND s.sid='.$sid.'order by Tempo.countp desc rownum = 1';
+        // SELECT w.wid, w.phone, w.unitNo, w.street, w.city, w.province, Tempo.countp FROM supplier s, warehouse w,(select COUNT(DISTINCT pid) AS countp FROM stores st
+        // WHERE st.sid = 3015) Tempo WHERE w.sid=s.sid AND s.sid= 3015 order by Tempo.countp desc rownum = 1
+    }
     $stid2 = oci_parse($conn, $query2);
     $r2 = oci_execute($stid2);
 
