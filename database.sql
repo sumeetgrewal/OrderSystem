@@ -102,7 +102,8 @@ CREATE TABLE contracts (
 sid   integer, 
 did   integer,
 PRIMARY KEY (sid, did),	
-FOREIGN KEY (sid) REFERENCES supplier(sid));
+FOREIGN KEY (sid) REFERENCES supplier(sid),
+FOREIGN KEY (did) REFERENCES distributor(did));
 
 grant all on contracts to public;
 
@@ -150,17 +151,17 @@ VALUES (
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
-        12, 'Green Leaf', '7785191783', 51, 'W Broadway', 'Vancouver', 'BC');
+    12, 'Green Leaf', '7785191783', 51, 'W Broadway', 'Vancouver', 'BC');
 
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province) 
 VALUES (
-	 13, 'Nuba', '7786191784', 41, 'Burrard St', 'Vancouver', 'BC');
+	13, 'Nuba', '7786191784', 41, 'Burrard St', 'Vancouver', 'BC');
 
 INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province) 
+rid, name, phone, unitNo, street, city, province)
 VALUES (
-	14, 'The Keg', '7787191785', 31, 'Granville St', 'Vancouver', 'BC');
+	14, 'Nicli Antica', '6046696985', 62, 'E Cordova St', 'Vancouver', 'BC');
 
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
@@ -170,12 +171,12 @@ VALUES (
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
 VALUES (
-	16, 'Earls', '6047365663', 1601, 'W Broadway', 'Vancouver', 'BC');
+	16, 'Trattoria', '6044248779', 4501, 'Kingsway', 'Burnaby', 'BC');
 	
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
 VALUES (
-	17, 'Cactus Club Cafe', '6046207410', 1085, 'Canada Pl', 'Vancouver', 'BC');
+	17, 'Tenen', '6043366665', 7569, 'Royal Oak Avenue', 'Burnaby', 'BC');
 	
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
@@ -185,7 +186,7 @@ VALUES (
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
 VALUES (
-	19, 'Guu',  '6046858817', 838, 'Thurlow St', 'Vancouver', 'BC');
+	19, 'Tasty Indian Bistro', '6045079393', 8295, 'Scott Road', 'Surrey', 'BC');
 	
 INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
@@ -196,47 +197,7 @@ INSERT INTO restaurant (
 rid, name, phone, unitNo, street, city, province)
 VALUES (
 	21, 'Miku', '6045683900', 200, 'Granville St', 'Vancouver', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	22, 'Tableau Bar Bistro', '6046398692', 1181, 'Melville St', 'Vancouver', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	23, 'Bambudda', '6044280301', 99, 'Powell St', 'Vancouver', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	24, 'Belgard Kitchen', '6045661989', 55, 'Dunlevy Ave', 'Vancouver', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	25, 'Cuchillo', '6045597585', 261, 'Powell St', 'Vancouver', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	26, 'Nicli Antica', '6046696985', 62, 'E Cordova St', 'Vancouver', 'BC');
 
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	27, 'Trattoria', '6044248779', 4501, 'Kingsway', 'Burnaby', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	28, 'Tenen', '6043366665', 7569, 'Royal Oak Avenue', 'Burnaby', 'BC');
-	
-INSERT INTO restaurant (
-rid, name, phone, unitNo, street, city, province)
-VALUES (
-	29, 'Tasty Indian Bistro', '6045079393', 8295, 'Scott Road', 'Surrey', 'BC');
-	
 --````````````````````````````````````````````````````````````````````````````````
 
 INSERT INTO supplier (
@@ -334,13 +295,13 @@ did, name, phone)
 VALUES (
 	1005, 'Penguins Delivery', '7787871236');
 
-/*	
+
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
-	1006, 'Silver Knights Distribution', '7787783030');
+	1006, 'Silver Knights Dist', '7787783030');
 
-	
+/*	
 INSERT INTO distributor (
 did, name, phone) 
 VALUES (
@@ -717,12 +678,12 @@ VALUES (
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	107, '0.00', 'delivered', '31/01/18', '02/02/18', 14, 3011, 1002);
+	107, '0.00', 'delivered', '31/01/18', '02/02/18', 14, 3011, 1006);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	108, '0.00', 'ordered', '16/03/18', '02/04/18', 15, 3009, 1005);
+	108, '0.00', 'ordered', '16/03/18', '02/04/18', 15, 3009, 1001);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
@@ -732,7 +693,7 @@ VALUES (
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
 VALUES (
-	110, '0.00', 'processing', '28/03/18', '5/04/18', 16, 3019, 1000);
+	110, '0.00', 'processing', '28/03/18', '5/04/18', 16, 3019, 1005);
 
 INSERT INTO orders (
 oid, cost, status, orderDate, shipDate, rid, sid, did) 
@@ -754,8 +715,87 @@ oid, cost, status, orderDate, shipDate, rid, sid, did)
 VALUES (
 	114, '0.00', 'ordered', '19/03/18', '10/04/18', 19, 3003, 998);
 
-	
--- restaurants 10-19 have orders, 20-29 don't have orders
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	115, '0.00', 'delivered', '1/03/18', '19/03/18', 20, 3003, 998);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	116, '0.00', 'ordered', '14/03/18', '01/04/18', 10, 3005, 999);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	117, '0.00', 'processing', '06/04/18', '12/04/18', 10, 3007, 1000);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	118, '0.00', 'processing', '27/03/18', '31/03/18', 16, 3015, 1005);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	119, '0.00', 'delivered', '16/02/18', '20/02/18', 21, 3007, 1000);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	120, '0.00', 'delivered', '14/02/18', '19/02/18', 18, 3013, 1003);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	121, '0.00', 'ordered', '14/03/18', '01/04/18', 21, 3021, 1004);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	122, '0.00', 'delivered', '31/01/18', '02/02/18', 19, 3011, 1002);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	123, '0.00', 'ordered', '16/03/18', '02/04/18', 12, 3009, 1001);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	124, '0.00', 'delivered', '06/03/18', '12/03/18', 11, 3017, 1002);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	125, '0.00', 'processing', '28/03/18', '5/04/18', 11, 3019, 1000);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	126, '0.00', 'ordered', '20/03/18', '15/04/18', 10, 3017, 1002);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	127, '0.00', 'ordered', '15/03/18', '6/04/18', 14, 3013, 1003);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	128, '0.00', 'delivered', '01/03/18', '12/03/18', 15, 3021, 1004);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	129, '0.00', 'ordered', '19/03/18', '10/04/18', 15, 3003, 998);
+
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	130, '0.00', 'delivered', '31/01/18', '02/02/18', 11, 3011, 1006);
+
+-- restaurants 10-19 have orders, 20-23
 	
 -- ``````````````````````````````````````````````````````````````````````
 INSERT INTO warehouse (
