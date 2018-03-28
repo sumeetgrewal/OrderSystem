@@ -14,13 +14,17 @@
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     
     $deletePid = $_POST['delete_pid'];
-    $delteQuery = 'delete from contain where pid='.$deletePid.' AND oid='.$oid.'';
-    $delteStid = oci_parse($conn, $delteQuery);
-    $delteR = oci_execute($delteStid);
     
-    $delteQuery2 = 'update orders o set o.cost=o.cost-(select price from product where pid='.$deletePid.') where o.oid='.$oid.'';
-    $delteStid2 = oci_parse($conn, $delteQuery2);
-    $delteR2 = oci_execute($delteStid2);
+    if ($deletePid) {    
+	    $deleteQuery2 = 'update orders o set o.cost=o.cost-(select (c.quantity*p.price) as totCost from contain c, product p where p.pid=c.pid AND p.pid='.$deletePid.' AND c.oid='.$oid.') where o.oid='.$oid.'';
+	    print $delteQuery2;
+	    $deleteStid2 = oci_parse($conn, $deleteQuery2);
+	    $deleteR2 = oci_execute($deleteStid2);
+	    
+	    $delteQuery = 'delete from contain where pid='.$deletePid.' AND oid='.$oid.'';
+	    $delteStid = oci_parse($conn, $delteQuery);
+	    $delteR = oci_execute($delteStid);
+    }
     
     $query = 'select * from orders where oid='.$oid.'';
     $stid = oci_parse($conn, $query);

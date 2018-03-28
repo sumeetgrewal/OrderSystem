@@ -58,6 +58,7 @@ rid     integer,
 sid     integer, 
 did     integer,
 PRIMARY KEY (oid),
+UNIQUE (oid, sid),
 FOREIGN KEY (rid) REFERENCES restaurant(rid)
 	ON DELETE CASCADE,
 FOREIGN KEY (sid) REFERENCES supplier(sid),
@@ -110,11 +111,14 @@ grant all on contracts to public;
 CREATE TABLE contain (
 oid      integer, 
 pid      integer, 
-sid      integer, 
+osid     integer,
+sid      integer,   
 quantity integer,
 PRIMARY KEY (oid, pid, sid),
-FOREIGN KEY (oid) REFERENCES orders(oid) ON DELETE CASCADE,
-FOREIGN KEY (pid, sid) REFERENCES product(pid, sid));
+FOREIGN KEY (oid, osid) REFERENCES orders(oid, sid) ON DELETE CASCADE,
+FOREIGN KEY (pid, sid) REFERENCES product(pid, sid),
+CONSTRAINT check_sid_integ CHECK (osid=sid));
+
 
 grant all on contain to public;
 
@@ -913,7 +917,67 @@ VALUES (
 
 --`````````````````````````````````````````````````````````````````````````
 
+INSERT INTO contain VALUES (101, 99999, 3005, 3005, 50);
+INSERT INTO contain VALUES (101, 99998, 3005, 3005, 25);
 /*
+INSERT INTO contain VALUES (???, 99997, 3005, 50);
+INSERT INTO contain VALUES (???, 99996, 3005, 50);
+INSERT INTO contain VALUES (???, 99995, 3005, 50);
+INSERT INTO contain VALUES (???, 99994, 3005, 50);
+INSERT INTO contain VALUES (???, 99993, 3005, 50);
+INSERT INTO contain VALUES (???, 99992, 3005, 50);
+INSERT INTO contain VALUES (???, 99991, 3005, 50);
+INSERT INTO contain VALUES (???, 99990, 3005, 50);
+INSERT INTO contain VALUES (???, 99989, 3005, 50);
+INSERT INTO contain VALUES (???, 99988, 3005, 50);
+INSERT INTO contain VALUES (???, 99987, 3005, 50);
+INSERT INTO contain VALUES (???, 99986, 3005, 50);
+INSERT INTO contain VALUES (???, 99985, 3005, 50);
+INSERT INTO contain VALUES (???, 99984, 3005, 50);
+INSERT INTO contain VALUES (???, 99983, 3005, 50);
+INSERT INTO contain VALUES (???, 99982, 3005, 50);
+INSERT INTO contain VALUES (???, 99981, 3005, 50);
+INSERT INTO contain VALUES (???, 99980, 3005, 50);
+INSERT INTO contain VALUES (???, 99979, 3005, 50);
+INSERT INTO contain VALUES (???, 99978, 3005, 50);
+INSERT INTO contain VALUES (???, 99977, 3005, 50);
+INSERT INTO contain VALUES (???, 99976, 3005, 50);
+INSERT INTO contain VALUES (???, 99975, 3005, 50);
+INSERT INTO contain VALUES (???, 99974, 3005, 50);
+INSERT INTO contain VALUES (???, 99973, 3005, 50);
+INSERT INTO contain VALUES (???, 99972, 3005, 50);
+INSERT INTO contain VALUES (???, 99971, 3005, 50);
+INSERT INTO contain VALUES (???, 99970, 3005, 50);
+INSERT INTO contain VALUES (???, 99969, 3005, 50);
+*/
+
+CREATE VIEW orderCosts AS select temp.oid, SUM(totalPrice) as orderPrice from ( select p.price, c.quantity, (p.price*c.quantity) as totalPrice, o.oid from orders o , product p,contain c where p.pid=c.pid AND o.oid=c.oid) temp, orders b where b.oid=temp.oid group by temp.oid;
+
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=100) where o.oid=100;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=101) where o.oid=101;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=102) where o.oid=102;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=103) where o.oid=103;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=104) where o.oid=104;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=105) where o.oid=105;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=106) where o.oid=106;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=107) where o.oid=107;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=108) where o.oid=108;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=109) where o.oid=109;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=110) where o.oid=110;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=111) where o.oid=111;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=112) where o.oid=112;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=113) where o.oid=113;
+update orders o set o.cost=o.cost+(select t.orderPrice from orderCosts t where t.oid=114) where o.oid=114;
+
+drop view orderCosts;
+
+
+/*
+	
+INSERT INTO orders (
+oid, cost, status, orderDate, shipDate, rid, sid, did) 
+VALUES (
+	100, '0.00', 'delivered', '1/03/18', '19/03/18', 10, 3003, 998);
 
 INSERT INTO contain (
 oid, pid, sid, quantity) 
