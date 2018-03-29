@@ -10,7 +10,7 @@
   if ($rid && $sid && $did) {
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     $asdf = "ordered";
-    $query = 'insert into orders values ((select max(oid) from orders)+1, 0, \'ordered\', sysdate, null, '.$rid.', '.$sid.', '.$did.')';
+    $query = 'insert into orders values ((select max(oid) from orders)+1, 0, \'ordered\', sysdate, sysdate+10, '.$rid.', '.$sid.', '.$did.')';
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
     

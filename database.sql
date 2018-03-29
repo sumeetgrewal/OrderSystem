@@ -507,7 +507,7 @@ VALUES (
 INSERT INTO product (
 pid, name, category, price, sid) 
 VALUES (
-	99966, 'White Sugar', 'Baking', '50.00', 3013);
+	99966, 'Cane Sugar', 'Baking', '42.00', 3013);
 	
 INSERT INTO product (
 pid, name, category, price, sid) 

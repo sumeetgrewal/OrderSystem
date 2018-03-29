@@ -24,6 +24,17 @@ $(document).ready(function() {
     $(this).addClass('active').siblings().removeClass('active');
     $('#submitButton').prop("disabled", false);
   });
+    
+    $('#whProductTable').on('click', 'tbody tr', function(event) {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('#submitButton').prop("disabled", false);
+  });
+  
+	$('#warehouseTable').on('click', 'tbody tr', function(event) {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('#submitButton').prop("disabled", false);
+  });
+  
 });
 
 function submit_rest_form() {
@@ -44,6 +55,18 @@ function submit_rest_form() {
 function submit_order_form() {
   $value = $('#orderTable .active td').html();
   $('#next').append('<input type="hidden" name="oid" value="'+$value+'" />');
+  $("#next").submit();
+}
+
+function submit_warehouse_form() {
+  $value = $('#warehouseTable .active td').html();
+  $('#next').append('<input type="hidden" name="wid" value="'+$value+'" />');
+  $("#next").submit();
+}
+
+function submit_sup_prod_form() {
+  $value = $('#whProductTable .active td').html();
+  $('#next').append('<input type="hidden" name="pid" value="'+$value+'" />');
   $("#next").submit();
 }
 

@@ -1,4 +1,4 @@
-#restaurantTable .active, #orderTable .active, #productTable .active, #distributorTable .active, #supplierTable .active, #warehouseTable .active {
+#restaurantTable .active, #orderTable .active, #productTable .active, #distributorTable .active, #supplierTable .active, #warehouseTable .active, #whProductTable .active {
   background-color: rgba(0,0,0,.075);
 }
 
