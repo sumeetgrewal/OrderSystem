@@ -32,10 +32,10 @@
       <h5>Filter</h5>
       <div class="form-row">
         <div class="col"> 
-          <input class="form-control" name="rid" type="text" placeholder="RID" <?php echo(isset($_POST['rid']) ? 'value="'.$_POST['rid'].'"' : '') ?> ><br>
+          <input class="form-control" name="rid" type="text" placeholder="Restaurant Name" <?php echo(isset($_POST['rid']) ? 'value="'.$_POST['rid'].'"' : '') ?> ><br>
         </div>
         <div class="col">
-          <input class="form-control" name="sid" type="text" placeholder="SID" <?php echo(isset($_POST['sid']) ? 'value="'.$_POST['sid'].'"' : '') ?> ><br>
+          <input class="form-control" name="sid" type="text" placeholder="Supplier Name" <?php echo(isset($_POST['sid']) ? 'value="'.$_POST['sid'].'"' : '') ?> ><br>
         </div>
         <div class="col">
           <input class="form-control" name="status" type="text" placeholder="Status" <?php echo(isset($_POST['status']) ? 'value="'.$_POST['status'].'"' : '') ?> ><br>
@@ -84,9 +84,9 @@
 	  if ($joinSupplier == 'join') { $query2 .= 's.name as suppName, '; }
 	  if ($joinWarehouse == 'join') { $query2 .= 'w.unitNo as warehouseUnitNo, w.street as warehouseStreet, w.city as warehouseCity, w.province as warehouseProvince, '; }
 	  $query2 .= 'o.status from orders o, supplier s, restaurant r, warehouse w where o.rid=r.rid AND o.sid=s.sid AND s.sid=w.sid AND o.did='.$did.'';
-		if ($rid) { $query2 = $query2 .'AND r.rid='.$rid; }
-	  if ($sid) { $query2 = $query2 .'AND s.sid='.$sid; }
-	  if ($status) { $query2 = $query2 .'AND o.status='.$status; }
+		if ($rid) { $query2 = $query2 .' AND r.name= \''.$rid.'\''; }
+	  if ($sid) { $query2 = $query2 .' AND s.name= \''.$sid.'\''; }
+	  if ($status) { $query2 = $query2 .' AND o.status = \''.$status.'\''; }
 	  $stid2 = oci_parse($conn, $query2);
 	  $r2 = oci_execute($stid2);
 	  
