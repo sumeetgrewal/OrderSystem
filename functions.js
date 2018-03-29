@@ -24,6 +24,10 @@ $(document).ready(function() {
         $(this).addClass('active').siblings().removeClass('active');
         $('#submitButton').prop("disabled", false);
     });
+        $('#warehouseTable').on('click', 'tbody tr', function(event) {
+        $(this).addClass('active').siblings().removeClass('active');
+        $('#submitButton').prop("disabled", false);
+    });
 });
 
 function submit_form() {
@@ -57,6 +61,12 @@ function submit_dist_form() {
     alert("Wrong password");
   }
   
+}
+
+function submit_warehouse_form() {
+  $value = $('#warehouseTable .active td').html();
+  $('#next').append('<input type="hidden" name="wid" value="'+$value+'" />');
+  $("#next").submit();
 }
 
 function submit_supplier_form() {
