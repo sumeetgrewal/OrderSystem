@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 
 <?php  
-  $wid = $_GET["wid"];
+  $wid = $_POST["wid"];
   if ($wid) {
   	// Create connection to Oracle
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
