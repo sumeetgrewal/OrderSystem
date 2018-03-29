@@ -20,30 +20,28 @@ $(document).ready(function() {
     $('#submitButton').prop("disabled", false);
   });
 
-    $('#supplierTable').on('click', 'tbody tr', function(event) {
-        $(this).addClass('active').siblings().removeClass('active');
-        $('#submitButton').prop("disabled", false);
-    });
-        $('#warehouseTable').on('click', 'tbody tr', function(event) {
-        $(this).addClass('active').siblings().removeClass('active');
-        $('#submitButton').prop("disabled", false);
-    });
+  $('#supplierTable').on('click', 'tbody tr', function(event) {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('#submitButton').prop("disabled", false);
+  });
 });
 
-function submit_form() {
+function submit_rest_form() {
   $value = $('#restaurantTable .active td').html();
   $('#next').append('<input type="hidden" name="rid" value="'+$value+'" />');
   
   $pass = prompt("Please enter password", "");
 
   if ($pass == $value) {
-      $("#next").submit();
+    $("#next").submit();
+  } else if ($pass == null || $pass == "") {
+    // do nothing
   } else {
     alert("Wrong password");
   } 
 }
 
-function submit_another_form() {
+function submit_order_form() {
   $value = $('#orderTable .active td').html();
   $('#next').append('<input type="hidden" name="oid" value="'+$value+'" />');
   $("#next").submit();
@@ -56,31 +54,39 @@ function submit_dist_form() {
   $pass = prompt("Please enter password", "");
 
   if ($pass == $value) {
-      $("#next").submit();
+    $("#next").submit();
+  } else if ($pass == null || $pass == "") {
+    // do nothing
   } else {
     alert("Wrong password");
   }
-  
 }
 
-function submit_warehouse_form() {
-  $value = $('#warehouseTable .active td').html();
-  $('#next').append('<input type="hidden" name="wid" value="'+$value+'" />');
+function choose_dist_form() {
+  $value = $('#distributorTable .active td').html();
+  $('#next').append('<input type="hidden" name="did" value="'+$value+'" />');
   $("#next").submit();
 }
 
 function submit_supplier_form() {
-    $value = $('#supplierTable .active td').html();
-    $('#next').append('<input type="hidden" name="sid" value="'+$value+'" />');
+  $value = $('#supplierTable .active td').html();
+  $('#next').append('<input type="hidden" name="sid" value="'+$value+'" />');
 
-    $pass = prompt("Please enter password", "");
+  $pass = prompt("Please enter password", "");
 
-    if ($pass == $value) {
-        $("#next").submit();
-    } else {
-        alert("Wrong password");
-    }
+  if ($pass == $value) {
+    $("#next").submit();
+  } else if ($pass == null || $pass == "") {
+    // do nothing
+  } else {
+    alert("Wrong password");
+  }
+}
 
+function choose_supplier_form() {
+  $value = $('#supplierTable .active td').html();
+  $('#next').append('<input type="hidden" name="sid" value="'+$value+'" />');
+  $("#next").submit();
 }
 
 function delete_restaurant() {

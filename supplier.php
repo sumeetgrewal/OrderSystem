@@ -1,6 +1,6 @@
 <?php include 'header.php';
 
-$sid = $_GET["sid"];
+$sid = $_POST["sid"];
 $minMax = $_POST["filter"];
 
 if($sid) { ?>
@@ -13,7 +13,7 @@ if($sid) { ?>
     $r = oci_execute($stid);
 
     // Fetch each row in an associative array
-    print '<div id="supplierTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
+    print '<div class="table-responsive"><table class="table table-bordered"><thead><tr>
 	    <th scople="col">SID</th>
 	    <th scople="col">Name</th>
 	    <th scople="col">Phone</th>
@@ -43,6 +43,7 @@ if($sid) { ?>
         </div>
     </div>
     <div class="form-group">
+        <input type="hidden" name="sid" value="<?php echo $sid ?>" />
         <input class="btn btn-primary" type="submit" value="Find">
     </div>
     </form>
@@ -54,7 +55,8 @@ if($sid) { ?>
         </div>
     </div>
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Find">
+      <input type="hidden" name="sid" value="<?php echo $sid ?>" />
+      <input class="btn btn-primary" type="submit" value="Find">
     </div>
     </form>
     <h1>All Warehouses</h1>
@@ -149,9 +151,10 @@ if($sid) { ?>
 
    	
     oci_close($conn); ?>
-    <form id="next" method="get" action="warehouse-product.php">
+    <form id="next" method="post" action="warehouse-product.php">
         <div class="form-group">
-            <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_warehouse_form()" disabled="true">
+          <input type="hidden" name="sid" value="<?php echo $sid ?>" />
+          <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_warehouse_form()" disabled="true">
         </div>
    	</form>
 <?php } else { ?>
@@ -180,7 +183,7 @@ if($sid) { ?>
 
     oci_close($conn); ?>
 
-    <form id="next" method="get">
+    <form id="next" method="post">
         <div class="form-group">
             <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_supplier_form()" disabled="true">
         </div>

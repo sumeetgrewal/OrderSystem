@@ -1,6 +1,6 @@
 <?php include 'header.php';
   
-  $did = $_GET["did"];
+  $did = $_POST["did"];
   $rid = $_POST["rid"];
   $sid = $_POST["sid"];
   $status = $_POST["status"];
@@ -14,7 +14,7 @@
 	  $r = oci_execute($stid);
 	  
 	  // Fetch each row in an associative array
-	  print '<div id="distributorTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
+	  print '<div class="table-responsive"><table class="table table-bordered"><thead><tr>
 	    <th scople="col">DID</th>
 	    <th scople="col">Name</th>
 	    <th scople="col">Phone</th>
@@ -56,6 +56,7 @@
       </div>
       
       <div class="form-group">
+        <input type="hidden" name="did" value="<?php echo $did ?>" />
         <input class="btn btn-primary" type="submit" value="Filter and Join">
       </div>
     </form>
@@ -147,7 +148,7 @@
 	  
 	  oci_close($conn); ?>
 	  
-	  <form id="next" method="get">
+	  <form id="next" method="post">
 	    <div class="form-group">
 	      <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_dist_form()" disabled="true">
 	    </div>

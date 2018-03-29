@@ -1,118 +1,66 @@
 <?php include 'header.php';?>
 
-<?php $_GET["rid"]; ?>
-
 <?php
   
-  $rid = $_GET["rid"];
-  $oid = $_GET["oid"];
-  if ($oid) { ?>
-	  
-	  <h1>Order #<?php echo $oid ?></h1>
-	  
-	  <?php // Create connection to Oracle
+  $rid = $_POST["rid"];
+  $oid = $_POST["oid"];
+  $sid = $_POST["sid"];
+  $did = $_POST["did"];
+  
+  if ($rid && $sid && $did) {
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-    
-    $deletePid = $_POST['delete_pid'];
-    
-    if ($deletePid) {    
-	    $deleteQuery2 = 'update orders o set o.cost=o.cost-(select (c.quantity*p.price) as totCost from contain c, product p where p.pid=c.pid AND p.pid='.$deletePid.' AND c.oid='.$oid.') where o.oid='.$oid.'';
-	    print $delteQuery2;
-	    $deleteStid2 = oci_parse($conn, $deleteQuery2);
-	    $deleteR2 = oci_execute($deleteStid2);
-	    
-	    $delteQuery = 'delete from contain where pid='.$deletePid.' AND oid='.$oid.'';
-	    $delteStid = oci_parse($conn, $delteQuery);
-	    $delteR = oci_execute($delteStid);
-    }
-    
-    $query = 'select * from orders where oid='.$oid.'';
+    $asdf = "ordered";
+    $query = 'insert into orders values ((select max(oid) from orders)+1, 0, \'ordered\', sysdate, null, '.$rid.', '.$sid.', '.$did.')';
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
     
-    // Fetch each row in an associative array
-    print '<div class="table-responsive"><table class="table table-bordered"><thead><tr>
-      <th scople="col">OID</th>
-      <th scople="col">Cost</th>
-      <th scople="col">Status</th>
-      <th scople="col">Order Date</th>
-      <th scople="col">Ship Date</th>
-      <th scople="col">RID</th>
-      <th scople="col">SID</th>
-      <th scople="col">DID</th>
-      </tr></thead><tbody>';
-    while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
-       print '<tr>';
-       foreach ($row as $item) {
-           print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-       }
-       print '</tr>';
+    if (!$r) {
+      $e = oci_error($stid);  // For oci_execute errors pass the statement handle
+      print htmlentities($e['message']);
+      print "\n<pre>\n";
+      print htmlentities($e['sqltext']);
+      printf("\n%".($e['offset']+1)."s", "^");
+      print  "\n</pre>\n";
     }
-    print '</tbody></table></div>';
-    ?>
-    
-    <h1>Order Details</h1>
-    
-    <?php 
-    $query2 = 'select p.pid, p.name, p.category, p.price, c.quantity from product p, contain c where c.oid='.$oid.' AND c.pid=p.pid';
-    $stid2 = oci_parse($conn, $query2);
-    $r2 = oci_execute($stid2);
-    
-    // Fetch each row in an associative array
-    print '<div id="productTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
-      <th scople="col">PID</th>
-      <th scople="col">Name</th>
-      <th scople="col">Category</th>
-      <th scople="col">Price</th>
-      <th scople="col">Quantity</th>
-      </tr></thead><tbody>';
-    while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS+OCI_ASSOC)) {
-       print '<tr>';
-       foreach ($row as $item) {
-           print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-       }
-       print '</tr>';
-    }
-    print '</tbody></table></div>';
-    
-    
-    oci_close($conn); ?>
-    
-    <form id="deleteProduct" method="post">
-	    <div class="form-group">
-		    <input class="btn btn-danger" id="deleteButton" type="button" value="Delete" onClick="delete_product()" disabled="true">
-	    </div>
-    </form>
-	  
-<?php	} elseif ($rid) { ?>
+    oci_close($conn);
+  }
+  
+  if ($rid) { ?>
     
     <h1>Orders For Restaurant #<?php echo $rid ?></h1>
+		
+		<form id="newOrder" method="post" action="select-supplier.php" class="mb-4">
+      <div class="form-group">
+	      <input type="hidden" name="rid" value="<?php echo $rid?>" />
+        <input class="btn btn-success" id="newOrderButton" type="submit" value="Place New Order">
+      </div>
+    </form>
     
-    <?php // Create connection to Oracle
-      $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug"); 
-    ?>
+    <?php $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug"); ?>
     
     <form id="filter" method="post">
       <h5>Search</h5>
       <div class="form-row">
         <div class="col"> 
-          <input class="form-control" name="oid" type="text" placeholder="OID" <?php echo(isset($_POST['oid']) ? 'value="'.$_POST['oid'].'"' : '') ?> ><br>
-          <input class="form-control" name="status" type="text" placeholder="Status" <?php echo(isset($_POST['status']) ? 'value="'.$_POST['status'].'"' : '') ?> ><br>
-          <input class="form-control" name="shipDate" type="text" placeholder="Ship Date" <?php echo(isset($_POST['shipDate']) ? 'value="'.$_POST['shipDate'].'"' : '') ?> ><br>
-          <input class="form-control" name="did" type="text" placeholder="DID" <?php echo(isset($_POST['did']) ? 'value="'.$_POST['did'].'"' : '') ?> ><br>
+          <input class="form-control" name="searchOid" type="text" placeholder="OID" <?php echo(isset($_POST['searchOid']) ? 'value="'.$_POST['searchOid'].'"' : '') ?> ><br>
+          <input class="form-control" name="searchStatus" type="text" placeholder="Status" <?php echo(isset($_POST['searchStatus']) ? 'value="'.$_POST['searchStatus'].'"' : '') ?> ><br>
+          <input class="form-control" name="searchShipDate" type="text" placeholder="Ship Date" <?php echo(isset($_POST['searchShipDate']) ? 'value="'.$_POST['searchShipDate'].'"' : '') ?> ><br>
+          <input class="form-control" name="searchDid" type="text" placeholder="DID" <?php echo(isset($_POST['searchDid']) ? 'value="'.$_POST['searchDid'].'"' : '') ?> ><br>
         </div>
         <div class="col">
-          <input class="form-control" name="cost" type="text" placeholder="Cost" <?php echo(isset($_POST['cost']) ? 'value="'.$_POST['cost'].'"' : '') ?> ><br>
-          <input class="form-control" name="orderDate" type="text" placeholder="Order Date" <?php echo(isset($_POST['orderDate']) ? 'value="'.$_POST['orderDate'].'"' : '') ?> ><br>  
-          <input class="form-control" name="sid" type="text" placeholder="SID" <?php echo(isset($_POST['sid']) ? 'value="'.$_POST['sid'].'"' : '') ?> ><br>
+          <input class="form-control" name="searchCost" type="text" placeholder="Cost" <?php echo(isset($_POST['searchCost']) ? 'value="'.$_POST['searchCost'].'"' : '') ?> ><br>
+          <input class="form-control" name="searchOrderDate" type="text" placeholder="Order Date" <?php echo(isset($_POST['searchOrderDate']) ? 'value="'.$_POST['searchOrderDate'].'"' : '') ?> ><br>  
+          <input class="form-control" name="searchSid" type="text" placeholder="SID" <?php echo(isset($_POST['searchSid']) ? 'value="'.$_POST['searchSid'].'"' : '') ?> ><br>
         </div>
       </div>
         
       <h5>Hide Columns</h5>
       <div class="form-group"> 
+<!--
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" name="showOID" value="show" <?php echo(isset($_POST['showOID'])?'checked="checked"':'') ?> >OID
         </div>
+-->
         
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" name="showCost" value="show" <?php echo(isset($_POST['showCost'])?'checked="checked"':'') ?> >Cost
@@ -144,6 +92,7 @@
       </div>
         
       <div class="form-group">
+        <input type="hidden" name="rid" value="<?php echo $rid ?>" />
         <input class="btn btn-primary" type="submit" value="Filter">
       </div>
       <hr>
@@ -173,20 +122,22 @@
     
     $query .= ' FROM orders o WHERE rid='.$rid.'';
     
-    $oid = $_POST['oid'];
-    $cost = $_POST['cost'];
-    $status = $_POST['status'];
-    $orderDate = $_POST['orderDate'];
-    $shipDate = $_POST['shipDate'];
-    $sid = $_POST['sid'];
-    $did = $_POST['did'];
-    if ($oid) { $query .= ' AND oid='.$oid.''; }
-    if ($cost) { $query .= ' AND cost='.$cost.''; }
-    if ($status) { $query .= ' AND status=\''.$status.'\''; }
-    if ($orderDate) { $query .= ' AND orderDate=\''.$orderDate.'\''; }
-    if ($shipDate) { $query .= ' AND shipDate=\''.$shipDate.'\''; }
-    if ($sid) { $query .= ' AND sid='.$sid.''; }
-    if ($did) { $query .= ' AND did='.$did.''; }
+    $searchOid = $_POST['searchOid'];
+    $searchCost = $_POST['searchCost'];
+    $searchStatus = $_POST['searchStatus'];
+    $searchOrderDate = $_POST['searchOrderDate'];
+    $searchShipDate = $_POST['searchShipDate'];
+    $searchSid = $_POST['searchSid'];
+    $searchDid = $_POST['searchDid'];
+    if ($searchOid) { $query .= ' AND oid='.$searchOid.''; }
+    if ($searchCost) { $query .= ' AND cost='.$searchCost.''; }
+    if ($searchStatus) { $query .= ' AND status=\''.$searchStatus.'\''; }
+    if ($searchOrderDate) { $query .= ' AND orderDate=\''.$searchOrderDate.'\''; }
+    if ($searchShipDate) { $query .= ' AND shipDate=\''.$searchShipDate.'\''; }
+    if ($searchSid) { $query .= ' AND sid='.$searchSid.''; }
+    if ($searchDid) { $query .= ' AND did='.$searchDid.''; }
+    
+    $query .= ' order by o.oid';
     
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
@@ -203,14 +154,13 @@
       if ($showRID != 'show') { print '<th scople="col">RID</th>'; }
       if ($showSID != 'show') { print '<th scople="col">SID</th>'; }
       if ($showDID != 'show') { print '<th scople="col">DID</th>'; }
-      print '</tr></thead>
-        <tbody>';
+      print '</tr></thead><tbody>';
       while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
-         print '<tr>';
-         foreach ($row as $item) {
-             print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-         }
-         print '</tr>';
+        print '<tr>';
+        foreach ($row as $item) {
+          print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+        }
+        print '</tr>';
       }
       print '</tbody></table></div>';
     } else {
@@ -224,17 +174,17 @@
     
     oci_close($conn); ?>
     
-    <form id="next" method="get">
+    <form id="next" method="post" action="order-details.php">
       <div class="form-group">
-        <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_another_form()" disabled="true">
+        <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_order_form()" disabled="true">
       </div>
     </form>
     
-<?php  } else { ?>
+<?php } else { ?>
     
     <h1>Restaurants</h1>
     
-    <?php // Create connection to Oracle
+    <?php
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     
     $deleteRid = $_POST['delete_rid'];
@@ -247,7 +197,6 @@
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
     
-    // Fetch each row in an associative array
     print '<div id="restaurantTable" class="table-responsive"><table class="table table-bordered table-hover"><thead><tr>
       <th scople="col">RID</th>
       <th scople="col">Name</th>
@@ -258,11 +207,11 @@
       <th scople="col">Province</th>
       </tr></thead><tbody>';
     while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
-       print '<tr>';
-       foreach ($row as $item) {
-           print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-       }
-       print '</tr>';
+      print '<tr>';
+      foreach ($row as $item) {
+        print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+      }
+      print '</tr>';
     }
     print '</tbody></table></div>';
     
@@ -274,9 +223,9 @@
 	    </div>
     </form>
     
-    <form id="next" method="get">
+    <form id="next" method="post">
       <div class="form-group">
-        <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_form()" disabled="true">
+        <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="submit_rest_form()" disabled="true">
       </div>
     </form>
 

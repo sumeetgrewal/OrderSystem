@@ -6,7 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="profile" href="http://gmpg.org/xfn/11">
-  <title><?php echo "Order System | " . ucfirst(basename($_SERVER['PHP_SELF'], '.php')) ?></title>
+  <?php 
+    $pageName = basename($_SERVER['PHP_SELF'], '.php');
+    $pageName = str_replace('-', ' ', $pageName);
+    $pageName = ucwords($pageName);
+  ?>
+  <title><?php echo "Order System | " . $pageName ?></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,7 +26,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item <?php if (basename($_SERVER['PHP_SELF'], '.php') == "restaurant") {echo "active";}; ?>">
+          <li class="nav-item <?php if (
+            basename($_SERVER['PHP_SELF'], '.php') == "restaurant" || 
+            basename($_SERVER['PHP_SELF'], '.php') == "select-supplier" ||
+            basename($_SERVER['PHP_SELF'], '.php') == "order-details") { echo "active"; } ?>">
             <a class="nav-link" href="restaurant.php">Restaurant</a>
           </li>
           <li class="nav-item <?php if (basename($_SERVER['PHP_SELF'], '.php') == "supplier") {echo "active";}; ?>">
