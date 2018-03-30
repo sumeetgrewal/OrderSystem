@@ -37,24 +37,28 @@
 			$r3 = oci_execute($stid);
 			if (!$r3) {
 	      $e = oci_error($stid);
+	      print '<div class="alert alert-danger">';
 	      print htmlentities($e['message']);
 	      print "\n<pre>\n";
 	      print htmlentities($e['sqltext']);
 	      printf("\n%".($e['offset']+1)."s", "^");
 	      print  "\n</pre>\n";
-    	}
+	      print '</div>';
+    	  }
 		} else if ($exists) {
 			$upQuery = 'update stores set onHand = onHand+'.$newQty.' where wid='.$wid.' and pid='.$newPid.'';
 			$stid = oci_parse($conn, $upQuery);
 			$r3 = oci_execute($stid);
 			if (!$r3) {
 	      $e = oci_error($stid);
+	      print '<div class="alert alert-danger">';
 	      print htmlentities($e['message']);
 	      print "\n<pre>\n";
 	      print htmlentities($e['sqltext']);
 	      printf("\n%".($e['offset']+1)."s", "^");
 	      print  "\n</pre>\n";
-    	}
+	      print '</div>';
+    	  }
 		}
     
     oci_close($conn);

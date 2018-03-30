@@ -122,14 +122,16 @@
 	     $count++;
 	  }
 	  print '</tbody></table></div>';
-	  if ($count == 0) { print '<p>No results found.</p>'; }
+	  if ($count == 0) { print '<div class="alert alert-warning">No results found.</div>'; }
 	  } else {
       $e = oci_error($stid2);  // For oci_execute errors pass the statement handle
+      print '<div class="alert alert-danger">';
       print htmlentities($e['message']);
       print "\n<pre>\n";
       print htmlentities($e['sqltext']);
       printf("\n%".($e['offset']+1)."s", "^");
       print  "\n</pre>\n";
+      print '</div>';
     }
 	  
 	  oci_close($conn); ?>

@@ -132,21 +132,26 @@ if($sid) { ?>
 	    <th scople="col">Province</th>
 	    <th scople="col"># of products</th>
 	    </tr></thead><tbody>';
+	      $count = 0;
         while ($row = oci_fetch_array($stid2, OCI_RETURN_NULLS + OCI_ASSOC)) {
             print '<tr>';
             foreach ($row as $item) {
                 print '<td>' . ($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp') . '</td>';
             }
             print '</tr>';
+            $count++;
         }
         print '</tbody></table></div>';
+        if ($count == 0) { print '<div class="alert alert-warning">No results found.</div>'; }
     } else {
         $e = oci_error($stid2);  // For oci_execute errors pass the statement handle
+        print '<div class="alert alert-danger">';
         print htmlentities($e['message']);
         print "\n<pre>\n";
         print htmlentities($e['sqltext']);
         printf("\n%".($e['offset']+1)."s", "^");
         print  "\n</pre>\n";
+        print '</div>';
     }
 
    	

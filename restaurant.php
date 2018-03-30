@@ -9,18 +9,19 @@
   
   if ($rid && $sid && $did) {
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-    $asdf = "ordered";
     $query = 'insert into orders values ((select max(oid) from orders)+1, 0, \'ordered\', sysdate, null, '.$rid.', '.$sid.', '.$did.')';
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
     
     if (!$r) {
       $e = oci_error($stid);  // For oci_execute errors pass the statement handle
+      print '<div class="alert alert-danger">';
       print htmlentities($e['message']);
       print "\n<pre>\n";
       print htmlentities($e['sqltext']);
       printf("\n%".($e['offset']+1)."s", "^");
       print  "\n</pre>\n";
+      print '</div>';
     }
     oci_close($conn);
   }
@@ -173,21 +174,26 @@
       if ($showSID != 'show') { print '<th scople="col">SID</th>'; }
       if ($showDID != 'show') { print '<th scople="col">DID</th>'; }
       print '</tr></thead><tbody>';
+      $count = 0;
       while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
         print '<tr>';
         foreach ($row as $item) {
           print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
         }
         print '</tr>';
+        $count++;
       }
       print '</tbody></table></div>';
+      if ($count == 0) { print '<div class="alert alert-warning">No results found.</div>'; }
     } else {
       $e = oci_error($stid);  // For oci_execute errors pass the statement handle
+      print '<div class="alert alert-danger">';
       print htmlentities($e['message']);
       print "\n<pre>\n";
       print htmlentities($e['sqltext']);
       printf("\n%".($e['offset']+1)."s", "^");
       print  "\n</pre>\n";
+      print '</div>';
     }
     
     oci_close($conn); ?>

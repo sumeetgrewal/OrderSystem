@@ -43,12 +43,14 @@
 	      $updateR = oci_execute($updateStid);  
 	    } else {
 	      $e = oci_error($stid);  // For oci_execute errors pass the statement handle
+	      print '<div class="alert alert-danger">';
 	      print htmlentities($e['message']);
 	      print "\n<pre>\n";
 	      print htmlentities($e['sqltext']);
 	      printf("\n%".($e['offset']+1)."s", "^");
 	      print  "\n</pre>\n";
-    	}
+	      print '</div>';
+    	  }
     } else if ($exists) {
 	    $query = 'update contain set quantity=quantity+'.$newQty.' where pid='.$newPid.' AND oid='.$oid.' AND sid=(select sid from product where pid='.$newPid.')';
 	    $stid = oci_parse($conn, $query);
@@ -60,12 +62,16 @@
 	      $updateR = oci_execute($updateStid);  
 	    } else {
 	      $e = oci_error($stid);  // For oci_execute errors pass the statement handle
+	      print '<div class="alert alert-danger">';
 	      print htmlentities($e['message']);
 	      print "\n<pre>\n";
 	      print htmlentities($e['sqltext']);
 	      printf("\n%".($e['offset']+1)."s", "^");
 	      print  "\n</pre>\n";
-    	}
+	      print '</div>';
+    	  }
+    } else {
+      print '<div class="alert alert-danger">There was an error. The product was not added.</div>';
     }
     
     oci_close($conn);
