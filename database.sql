@@ -118,7 +118,8 @@ quantity integer,
 PRIMARY KEY (oid, pid, sid),
 FOREIGN KEY (oid, osid) REFERENCES orders(oid, sid) ON DELETE CASCADE,
 FOREIGN KEY (pid, sid) REFERENCES product(pid, sid),
-CONSTRAINT check_sid_integ CHECK (osid=sid));
+CONSTRAINT check_sid_integ CHECK (osid=sid),
+CONSTRAINT check_qty_integ CHECK (quantity<=1000));
 
 
 grant all on contain to public;

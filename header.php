@@ -28,11 +28,13 @@
         <ul class="navbar-nav">
           <li class="nav-item <?php if (
             basename($_SERVER['PHP_SELF'], '.php') == "restaurant" || 
-            basename($_SERVER['PHP_SELF'], '.php') == "select-supplier" ||
+            basename($_SERVER['PHP_SELF'], '.php') == "place-new-order" ||
             basename($_SERVER['PHP_SELF'], '.php') == "order-details") { echo "active"; } ?>">
             <a class="nav-link" href="restaurant.php">Restaurant</a>
           </li>
-          <li class="nav-item <?php if (basename($_SERVER['PHP_SELF'], '.php') == "supplier") {echo "active";}; ?>">
+          <li class="nav-item <?php if (
+	          basename($_SERVER['PHP_SELF'], '.php') == "supplier" ||
+	          basename($_SERVER['PHP_SELF'], '.php') == "warehouse-product") { echo "active"; } ?>">
             <a class="nav-link" href="supplier.php">Supplier</a>
           </li>
           <li class="nav-item <?php if (basename($_SERVER['PHP_SELF'], '.php') == "distributor") {echo "active";}; ?>">

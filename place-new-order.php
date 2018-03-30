@@ -103,7 +103,7 @@
     
     oci_close($conn); ?>
     
-    <form id="next" method="post" action="select-supplier.php">
+    <form id="next" method="post" action="place-new-order.php">
         <div class="form-group">
 	        <input type="hidden" name="rid" value="<?php echo $rid?>" />
           <input class="btn btn-primary" id="submitButton" type="button" value="Next" onClick="choose_supplier_form()" disabled="true">

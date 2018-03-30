@@ -4,7 +4,7 @@ $sid = $_POST["sid"];
 $minMax = $_POST["filter"];
 
 if($sid) { ?>
-    <h1>Supplier # <?php echo $sid ?></h1>
+    <h1>Supplier #<?php echo $sid ?></h1>
     <?php // Create connection to Oracle
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
@@ -19,11 +19,11 @@ if($sid) { ?>
 	    <th scople="col">Phone</th>
 	    </tr></thead><tbody>';
     while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
-        print '<tr>';
-        foreach ($row as $item) {
-            print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-        }
-        print '</tr>';
+    	print '<tr>';
+			foreach ($row as $item) {
+				print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+     	}
+		 	print '</tr>';
     }
     print '</tbody></table></div>'; ?>
 

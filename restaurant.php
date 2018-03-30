@@ -10,7 +10,7 @@
   if ($rid && $sid && $did) {
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     $asdf = "ordered";
-    $query = 'insert into orders values ((select max(oid) from orders)+1, 0, \'ordered\', sysdate, sysdate+10, '.$rid.', '.$sid.', '.$did.')';
+    $query = 'insert into orders values ((select max(oid) from orders)+1, 0, \'ordered\', sysdate, null, '.$rid.', '.$sid.', '.$did.')';
     $stid = oci_parse($conn, $query);
     $r = oci_execute($stid);
     
@@ -27,16 +27,42 @@
   
   if ($rid) { ?>
     
+    <h1>Restaurant #<?php echo $rid ?></h1>
+    
+    <?php 
+	  $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+	        
+    $query = 'select * from restaurant where rid='.$rid.'';
+    $stid = oci_parse($conn, $query);
+    $r = oci_execute($stid);
+
+    print '<div class="table-responsive"><table class="table table-bordered"><thead><tr>
+	    <th scople="col">RID</th>
+      <th scople="col">Name</th>
+      <th scople="col">Phone</th>
+      <th scople="col">Unit No.</th>
+      <th scople="col">Street</th>
+      <th scople="col">City</th>
+      <th scople="col">Province</th>
+	    </tr></thead><tbody>';
+    while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
+    	print '<tr>';
+			foreach ($row as $item) {
+				print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+    	}
+			print '</tr>';
+ 		}
+    print '</tbody></table></div>'; ?>
+    
+    <hr>
     <h1>Orders For Restaurant #<?php echo $rid ?></h1>
 		
-		<form id="newOrder" method="post" action="select-supplier.php" class="mb-4">
+		<form id="newOrder" method="post" action="place-new-order.php" class="mb-4">
       <div class="form-group">
 	      <input type="hidden" name="rid" value="<?php echo $rid?>" />
         <input class="btn btn-success" id="newOrderButton" type="submit" value="Place New Order">
       </div>
     </form>
-    
-    <?php $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug"); ?>
     
     <form id="filter" method="post">
       <h5>Search</h5>
@@ -56,12 +82,6 @@
         
       <h5>Hide Columns</h5>
       <div class="form-group"> 
-<!--
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="showOID" value="show" <?php echo(isset($_POST['showOID'])?'checked="checked"':'') ?> >OID
-        </div>
--->
-        
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="checkbox" name="showCost" value="show" <?php echo(isset($_POST['showCost'])?'checked="checked"':'') ?> >Cost
         </div>
@@ -99,9 +119,8 @@
     </form>
     
     <?php
-    $query = 'SELECT ';
+    $query = 'SELECT oid,';
     
-    $showOID = $_POST['showOID'];
     $showCost = $_POST['showCost'];
     $showStatus = $_POST['showStatus'];
     $showOrderDate = $_POST['showOrderDate'];
@@ -109,7 +128,6 @@
     $showRID = $_POST['showRID'];
     $showSID = $_POST['showSID'];
     $showDID = $_POST['showDID'];
-    if ($showOID != 'show') { $query .= ' oid,'; }
     if ($showCost != 'show') { $query .= ' cost,'; }
     if ($showStatus != 'show') { $query .= ' status,'; }
     if ($showOrderDate != 'show') { $query .= ' orderDate,'; }
@@ -182,7 +200,7 @@
     
 <?php } else { ?>
     
-    <h1>Restaurants</h1>
+    <h1>Restaurant</h1>
     
     <?php
     $conn = oci_connect("ora_r1i0b", "a16019151", "dbhost.ugrad.cs.ubc.ca:1522/ug");

@@ -83,7 +83,19 @@
 	  if ($joinRestaurant == 'join') { $query2 .= 'r.name as restName, r.unitNo as restUnitNo, r.street as restStreet, r.city as restCity, r.province as restProvince, '; }
 	  if ($joinSupplier == 'join') { $query2 .= 's.name as suppName, '; }
 	  if ($joinWarehouse == 'join') { $query2 .= 'w.unitNo as warehouseUnitNo, w.street as warehouseStreet, w.city as warehouseCity, w.province as warehouseProvince, '; }
-	  $query2 .= 'o.status from orders o, supplier s, restaurant r, warehouse w where o.rid=r.rid AND o.sid=s.sid AND s.sid=w.sid AND o.did='.$did.'';
+	  
+	  $query2 .= 'o.status from orders o,';
+	  if ($joinRestaurant == 'join') { $query2 .= ' restaurant r,'; }
+	  if ($joinSupplier == 'join' && $joinWarehouse != 'join') { $query2 .= ' supplier s,'; }
+	  if ($joinWarehouse == 'join') { $query2 .= ' supplier s, warehouse w,'; }
+	  $query2 = substr($query2, 0, strlen($query2)-1);
+	  
+	  $query2 .= ' where o.did='.$did.' ';
+	  if ($joinRestaurant == 'join') { $query2 .= 'AND o.rid=r.rid '; }
+	  if ($joinSupplier == 'join' && $joinWarehouse != 'join') { $query2 .= 'AND o.sid=s.sid '; }
+	  if ($joinWarehouse == 'join') { $query2 .= 'AND s.sid=w.sid AND o.sid=s.sid '; }
+	  $query2 = substr($query2, 0, strlen($query2)-1);
+		
 		if ($rid) { $query2 = $query2 .' AND r.name= \''.$rid.'\''; }
 	  if ($sid) { $query2 = $query2 .' AND s.name= \''.$sid.'\''; }
 	  if ($status) { $query2 = $query2 .' AND o.status = \''.$status.'\''; }
